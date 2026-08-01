@@ -11,7 +11,7 @@ const Ventures = () => {
   };
 
   return (
-    <section id="ventures" className="py-24 px-6 bg-gray-50 dark:bg-navy/70">
+    <section id="ventures" className="py-20 px-6 bg-gray-50 dark:bg-navy/70">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -22,7 +22,7 @@ const Ventures = () => {
           <h2 className="text-4xl md:text-5xl font-bold text-navy dark:text-white">
             My <span className="text-gold">Ventures</span>
           </h2>
-          <p className="text-gray-600 dark:text-gray-300 mt-3">
+          <p className="text-gray-600 dark:text-gray-300 mt-3 text-base">
             Building businesses that create value and opportunity
           </p>
         </motion.div>
@@ -40,7 +40,7 @@ const Ventures = () => {
                 venture.externalUrl ? 'cursor-pointer' : ''
               }`}
             >
-              <div className="relative h-56 overflow-hidden">
+              <div className="relative h-64 overflow-hidden">
                 <img
                   src={venture.image}
                   alt={venture.title}

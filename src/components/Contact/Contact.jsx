@@ -36,57 +36,69 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" style={{ padding: '4rem 1.5rem', backgroundColor: '#f8fafc' }}>
-      <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-        <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-          <h2 style={{ fontSize: '2.5rem', fontWeight: 'bold', color: '#0b1a33' }}>
-            Contact <span style={{ color: '#d4af37' }}>Me</span>
+    <section id="contact" className="py-20 px-6 bg-white dark:bg-navy/95">
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center mb-12">
+          <h2 className="text-4xl md:text-5xl font-bold text-navy dark:text-white">
+            Contact <span className="text-gold">Me</span>
           </h2>
-          <p style={{ color: '#64748b', marginTop: '0.5rem' }}>
+          <p className="text-gray-600 dark:text-gray-300 mt-3 text-base">
             Let's connect and explore opportunities
           </p>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem' }}>
+        <div className="grid md:grid-cols-2 gap-12">
           {/* Contact Info */}
           <div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem', padding: '1rem', backgroundColor: 'white', borderRadius: '0.75rem', boxShadow: '0 4px 6px rgba(0,0,0,0.05)', border: '1px solid rgba(212,175,55,0.1)' }}>
-                <Mail style={{ color: '#d4af37', marginTop: '0.25rem', flexShrink: 0 }} size={20} />
+            <div className="space-y-4">
+              <div className="flex items-start gap-4 p-4 bg-gray-50 dark:bg-white/5 rounded-xl border border-gold/10 hover:border-gold/30 transition-all">
+                <Mail className="text-gold mt-1 flex-shrink-0" size={22} />
                 <div>
-                  <div style={{ fontWeight: '600', color: '#0b1a33', fontSize: '0.875rem' }}>Email</div>
-                  <a href={`mailto:${contactData.email}`} style={{ color: '#475569', textDecoration: 'none', fontSize: '0.875rem' }}>
+                  <div className="font-semibold text-navy dark:text-white">Email</div>
+                  <a
+                    href={`mailto:${contactData.email}`}
+                    className="text-gray-600 dark:text-gray-300 hover:text-gold transition"
+                  >
                     {contactData.email}
                   </a>
                 </div>
               </div>
 
-              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem', padding: '1rem', backgroundColor: 'white', borderRadius: '0.75rem', boxShadow: '0 4px 6px rgba(0,0,0,0.05)', border: '1px solid rgba(212,175,55,0.1)' }}>
-                <Phone style={{ color: '#d4af37', marginTop: '0.25rem', flexShrink: 0 }} size={20} />
+              <div className="flex items-start gap-4 p-4 bg-gray-50 dark:bg-white/5 rounded-xl border border-gold/10 hover:border-gold/30 transition-all">
+                <Phone className="text-gold mt-1 flex-shrink-0" size={22} />
                 <div>
-                  <div style={{ fontWeight: '600', color: '#0b1a33', fontSize: '0.875rem' }}>Phone</div>
-                  <a href={`tel:${contactData.phone1}`} style={{ color: '#475569', textDecoration: 'none', fontSize: '0.875rem', display: 'block' }}>
+                  <div className="font-semibold text-navy dark:text-white">Phone</div>
+                  <a
+                    href={`tel:${contactData.phone1}`}
+                    className="text-gray-600 dark:text-gray-300 hover:text-gold transition block"
+                  >
                     {contactData.phone1}
                   </a>
-                  <a href={`tel:${contactData.phone2}`} style={{ color: '#475569', textDecoration: 'none', fontSize: '0.875rem', display: 'block' }}>
+                  <a
+                    href={`tel:${contactData.phone2}`}
+                    className="text-gray-600 dark:text-gray-300 hover:text-gold transition block"
+                  >
                     {contactData.phone2}
                   </a>
                 </div>
               </div>
 
-              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem', padding: '1rem', backgroundColor: 'white', borderRadius: '0.75rem', boxShadow: '0 4px 6px rgba(0,0,0,0.05)', border: '1px solid rgba(212,175,55,0.1)' }}>
-                <MapPin style={{ color: '#d4af37', marginTop: '0.25rem', flexShrink: 0 }} size={20} />
+              <div className="flex items-start gap-4 p-4 bg-gray-50 dark:bg-white/5 rounded-xl border border-gold/10 hover:border-gold/30 transition-all">
+                <MapPin className="text-gold mt-1 flex-shrink-0" size={22} />
                 <div>
-                  <div style={{ fontWeight: '600', color: '#0b1a33', fontSize: '0.875rem' }}>Office</div>
-                  <div style={{ color: '#475569', fontSize: '0.875rem' }}>{contactData.office}</div>
+                  <div className="font-semibold text-navy dark:text-white">Office</div>
+                  <div className="text-gray-600 dark:text-gray-300">{contactData.office}</div>
                 </div>
               </div>
 
-              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem', padding: '1rem', backgroundColor: 'white', borderRadius: '0.75rem', boxShadow: '0 4px 6px rgba(0,0,0,0.05)', border: '1px solid rgba(212,175,55,0.1)' }}>
-                <MessageSquare style={{ color: '#d4af37', marginTop: '0.25rem', flexShrink: 0 }} size={20} />
+              <div className="flex items-start gap-4 p-4 bg-gray-50 dark:bg-white/5 rounded-xl border border-gold/10 hover:border-gold/30 transition-all">
+                <MessageSquare className="text-gold mt-1 flex-shrink-0" size={22} />
                 <div>
-                  <div style={{ fontWeight: '600', color: '#0b1a33', fontSize: '0.875rem' }}>WhatsApp</div>
-                  <a href={`https://wa.me/${contactData.whatsapp.replace(/\s/g, '')}`} style={{ color: '#475569', textDecoration: 'none', fontSize: '0.875rem' }}>
+                  <div className="font-semibold text-navy dark:text-white">WhatsApp</div>
+                  <a
+                    href={`https://wa.me/${contactData.whatsapp.replace(/\s/g, '')}`}
+                    className="text-gray-600 dark:text-gray-300 hover:text-gold transition"
+                  >
                     Chat with me
                   </a>
                 </div>
@@ -94,28 +106,43 @@ const Contact = () => {
             </div>
 
             {/* Social Links */}
-            <div style={{ marginTop: '2rem' }}>
-              <h4 style={{ fontSize: '0.875rem', fontWeight: '600', color: '#0b1a33', marginBottom: '0.75rem' }}>Connect with me</h4>
-              <div style={{ display: 'flex', gap: '0.75rem' }}>
-                <a href={contactData.social.facebook} target="_blank" rel="noopener noreferrer" style={{ padding: '0.75rem', backgroundColor: 'rgba(212,175,55,0.1)', borderRadius: '9999px', transition: 'all 0.3s' }}>
-                  <Facebook size={20} style={{ color: '#d4af37' }} />
+            <div className="mt-8">
+              <h4 className="text-sm font-semibold text-navy dark:text-white mb-3">Connect with me</h4>
+              <div className="flex gap-3">
+                <a
+                  href={contactData.social.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3 bg-gold/10 rounded-full hover:bg-gold/20 transition-all hover:scale-110"
+                >
+                  <Facebook size={22} className="text-gold" />
                 </a>
-                <a href={contactData.social.instagram} target="_blank" rel="noopener noreferrer" style={{ padding: '0.75rem', backgroundColor: 'rgba(212,175,55,0.1)', borderRadius: '9999px', transition: 'all 0.3s' }}>
-                  <Instagram size={20} style={{ color: '#d4af37' }} />
+                <a
+                  href={contactData.social.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3 bg-gold/10 rounded-full hover:bg-gold/20 transition-all hover:scale-110"
+                >
+                  <Instagram size={22} className="text-gold" />
                 </a>
-                <a href={contactData.social.linkedin} target="_blank" rel="noopener noreferrer" style={{ padding: '0.75rem', backgroundColor: 'rgba(212,175,55,0.1)', borderRadius: '9999px', transition: 'all 0.3s' }}>
-                  <Linkedin size={20} style={{ color: '#d4af37' }} />
+                <a
+                  href={contactData.social.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3 bg-gold/10 rounded-full hover:bg-gold/20 transition-all hover:scale-110"
+                >
+                  <Linkedin size={22} className="text-gold" />
                 </a>
               </div>
             </div>
           </div>
 
-          {/* Contact Form */}
-          <div style={{ backgroundColor: 'white', padding: '2rem', borderRadius: '1rem', boxShadow: '0 10px 30px rgba(0,0,0,0.08)', border: '1px solid #e2e8f0' }}>
-            <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+          {/* Contact Form - Proper Size */}
+          <div className="bg-white dark:bg-navy/80 p-8 rounded-2xl shadow-xl border border-gray-200 dark:border-white/10">
+            <form onSubmit={handleSubmit} className="space-y-5">
               <div>
-                <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: '500', color: '#0b1a33', marginBottom: '0.25rem' }}>
-                  Your Name <span style={{ color: '#ef4444' }}>*</span>
+                <label className="block text-sm font-medium text-navy dark:text-white/70 mb-1">
+                  Your Name <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="text"
@@ -124,13 +151,13 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   placeholder="Enter your name"
-                  style={{ width: '100%', padding: '0.75rem', borderRadius: '0.75rem', backgroundColor: '#f8fafc', border: '1px solid #e2e8f0', color: '#0b1a33', outline: 'none', fontSize: '0.875rem' }}
+                  className="w-full p-3 rounded-xl bg-gray-50 dark:bg-white/10 border border-gray-200 dark:border-white/10 text-navy dark:text-white placeholder-gray-400 dark:placeholder-white/50 focus:outline-none focus:border-gold transition"
                 />
               </div>
 
               <div>
-                <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: '500', color: '#0b1a33', marginBottom: '0.25rem' }}>
-                  Email Address <span style={{ color: '#ef4444' }}>*</span>
+                <label className="block text-sm font-medium text-navy dark:text-white/70 mb-1">
+                  Email Address <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="email"
@@ -139,13 +166,13 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   placeholder="Enter your email"
-                  style={{ width: '100%', padding: '0.75rem', borderRadius: '0.75rem', backgroundColor: '#f8fafc', border: '1px solid #e2e8f0', color: '#0b1a33', outline: 'none', fontSize: '0.875rem' }}
+                  className="w-full p-3 rounded-xl bg-gray-50 dark:bg-white/10 border border-gray-200 dark:border-white/10 text-navy dark:text-white placeholder-gray-400 dark:placeholder-white/50 focus:outline-none focus:border-gold transition"
                 />
               </div>
 
               <div>
-                <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: '500', color: '#0b1a33', marginBottom: '0.25rem' }}>
-                  Subject <span style={{ color: '#ef4444' }}>*</span>
+                <label className="block text-sm font-medium text-navy dark:text-white/70 mb-1">
+                  Subject <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="text"
@@ -154,45 +181,31 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   placeholder="Enter subject"
-                  style={{ width: '100%', padding: '0.75rem', borderRadius: '0.75rem', backgroundColor: '#f8fafc', border: '1px solid #e2e8f0', color: '#0b1a33', outline: 'none', fontSize: '0.875rem' }}
+                  className="w-full p-3 rounded-xl bg-gray-50 dark:bg-white/10 border border-gray-200 dark:border-white/10 text-navy dark:text-white placeholder-gray-400 dark:placeholder-white/50 focus:outline-none focus:border-gold transition"
                 />
               </div>
 
               <div>
-                <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: '500', color: '#0b1a33', marginBottom: '0.25rem' }}>
-                  Message <span style={{ color: '#ef4444' }}>*</span>
+                <label className="block text-sm font-medium text-navy dark:text-white/70 mb-1">
+                  Message <span className="text-red-500">*</span>
                 </label>
                 <textarea
-                  rows="4"
+                  rows="5"
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
                   required
                   placeholder="Tell me about your project or inquiry"
-                  style={{ width: '100%', padding: '0.75rem', borderRadius: '0.75rem', backgroundColor: '#f8fafc', border: '1px solid #e2e8f0', color: '#0b1a33', outline: 'none', resize: 'vertical', fontSize: '0.875rem' }}
+                  className="w-full p-3 rounded-xl bg-gray-50 dark:bg-white/10 border border-gray-200 dark:border-white/10 text-navy dark:text-white placeholder-gray-400 dark:placeholder-white/50 focus:outline-none focus:border-gold transition resize-none"
                 />
               </div>
 
               <button
                 type="submit"
                 disabled={formStatus === 'loading'}
-                style={{
-                  width: '100%',
-                  padding: '0.75rem',
-                  backgroundColor: '#d4af37',
-                  color: 'white',
-                  fontWeight: '600',
-                  borderRadius: '0.75rem',
-                  border: 'none',
-                  cursor: 'pointer',
-                  transition: 'all 0.3s',
-                  opacity: formStatus === 'loading' ? 0.7 : 1,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  gap: '0.5rem',
-                  fontSize: '0.875rem'
-                }}
+                className={`w-full py-3 bg-gold text-white font-semibold rounded-xl transition-all duration-300 shadow-lg flex items-center justify-center gap-2 text-base ${
+                  formStatus === 'loading' ? 'opacity-70 cursor-not-allowed' : 'hover:scale-105'
+                }`}
               >
                 {formStatus === 'loading' ? (
                   'Sending...'
@@ -200,7 +213,7 @@ const Contact = () => {
                   '✓ Message Sent!'
                 ) : (
                   <>
-                    <Send size={18} />
+                    <Send size={20} />
                     Send Message
                   </>
                 )}
