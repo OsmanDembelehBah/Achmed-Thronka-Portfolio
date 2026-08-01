@@ -91,7 +91,7 @@ const Navbar = () => {
       >
         <nav className="container mx-auto flex items-center justify-between rounded-2xl border border-white/10 bg-[#0B1120]/90 backdrop-blur-xl px-3 md:px-8 py-3 md:py-4 shadow-2xl">
           
-          {/* Logo - Mobile Friendly */}
+          {/* Logo - Full Version */}
           <div className="flex items-center gap-2 md:gap-4">
             <a href="#home" className="text-2xl md:text-5xl font-serif cursor-pointer">
               <span className="text-white">A</span>
@@ -100,20 +100,15 @@ const Navbar = () => {
 
             <div className="w-px h-6 md:h-12 bg-yellow-500/40"></div>
 
-            <a href="#home" className="cursor-pointer hidden xs:block">
+            <a href="#home" className="cursor-pointer">
               <h1 className="text-xs md:text-2xl font-bold tracking-wide">
                 <span className="text-white">ACHMED </span>
                 <span className="text-yellow-400">THRONKA</span>
               </h1>
-              <p className="uppercase text-[6px] md:text-[10px] tracking-[3px] md:tracking-[6px] text-gray-400 hidden sm:block">
+              <p className="uppercase text-[6px] md:text-[10px] tracking-[3px] md:tracking-[6px] text-gray-400">
                 Business Executive
               </p>
             </a>
-          </div>
-
-          {/* Mobile - Show short name */}
-          <div className="flex items-center gap-2 md:hidden">
-            <span className="text-xs font-bold text-white">A.THRONKA</span>
           </div>
 
           {/* Desktop Navigation */}

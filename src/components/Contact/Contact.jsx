@@ -1,6 +1,5 @@
 import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
-import emailjs from '@emailjs/browser';
 import {
   Mail,
   Phone,
@@ -28,7 +27,6 @@ const Contact = () => {
   });
   const [errors, setErrors] = useState({});
 
-  // TODO: Replace with your EmailJS credentials
   const EMAILJS_SERVICE_ID = 'service_xxxxxxxx';
   const EMAILJS_TEMPLATE_ID = 'template_xxxxxxxx';
   const EMAILJS_PUBLIC_KEY = 'xxxxxxxxxxxxxxxx';
@@ -129,7 +127,7 @@ const Contact = () => {
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-8 md:gap-12">
-          {/* Contact Info - Mobile Friendly */}
+          {/* Contact Info - Text now visible on all backgrounds */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -142,7 +140,7 @@ const Contact = () => {
                   <div className="font-semibold text-navy dark:text-white text-sm">Email</div>
                   <a
                     href={`mailto:${contactData.email}`}
-                    className="text-gray-600 dark:text-gray-300 hover:text-gold transition text-sm break-all"
+                    className="text-gray-700 dark:text-gray-300 hover:text-gold transition text-sm break-all"
                   >
                     {contactData.email}
                   </a>
@@ -155,13 +153,13 @@ const Contact = () => {
                   <div className="font-semibold text-navy dark:text-white text-sm">Phone</div>
                   <a
                     href={`tel:${contactData.phone1}`}
-                    className="text-gray-600 dark:text-gray-300 hover:text-gold transition text-sm block"
+                    className="text-gray-700 dark:text-gray-300 hover:text-gold transition text-sm block"
                   >
                     {contactData.phone1}
                   </a>
                   <a
                     href={`tel:${contactData.phone2}`}
-                    className="text-gray-600 dark:text-gray-300 hover:text-gold transition text-sm block"
+                    className="text-gray-700 dark:text-gray-300 hover:text-gold transition text-sm block"
                   >
                     {contactData.phone2}
                   </a>
@@ -172,7 +170,7 @@ const Contact = () => {
                 <MapPin className="text-gold mt-1 flex-shrink-0" size={18} />
                 <div>
                   <div className="font-semibold text-navy dark:text-white text-sm">Office</div>
-                  <div className="text-gray-600 dark:text-gray-300 text-sm">{contactData.office}</div>
+                  <div className="text-gray-700 dark:text-gray-300 text-sm">{contactData.office}</div>
                 </div>
               </div>
 
@@ -182,7 +180,7 @@ const Contact = () => {
                   <div className="font-semibold text-navy dark:text-white text-sm">WhatsApp</div>
                   <a
                     href={`https://wa.me/${contactData.whatsapp.replace(/\s/g, '')}`}
-                    className="text-gray-600 dark:text-gray-300 hover:text-gold transition text-sm"
+                    className="text-gray-700 dark:text-gray-300 hover:text-gold transition text-sm"
                   >
                     Chat with me
                   </a>
@@ -225,7 +223,7 @@ const Contact = () => {
             </div>
           </motion.div>
 
-          {/* Contact Form - Mobile Friendly */}
+          {/* Contact Form - Text now visible */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}

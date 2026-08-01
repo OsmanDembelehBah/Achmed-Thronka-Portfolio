@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { aboutData, educationData, careerData } from '../../data/ahmedData';
-import { Award, GraduationCap, Briefcase, Calendar } from 'lucide-react';
+import { GraduationCap, Briefcase } from 'lucide-react';
 
 const About = () => {
   return (
@@ -22,7 +22,7 @@ const About = () => {
           </p>
         </motion.div>
 
-        {/* Biography Section */}
+        {/* Biography Section - Text now visible on all backgrounds */}
         <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-start mb-16 md:mb-20">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -30,23 +30,40 @@ const About = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <p className="text-gray-700 dark:text-gray-200 leading-relaxed text-sm md:text-base mb-6">
-              {aboutData.biography}
-            </p>
+            <div className="text-gray-800 dark:text-gray-200 leading-relaxed text-sm md:text-base space-y-4">
+              <p>
+                Achmed Thronka is a Sierra Leonean entrepreneur, business executive and engineering professional with over twelve years of experience in business leadership, operations management, hospitality and engineering.
+              </p>
+              <p>
+                He is the <strong className="text-gold">CEO and Founder</strong> of White Dove Electrical Engineering Company, a company committed to providing innovative electrical engineering solutions and supporting infrastructure development in Sierra Leone.
+              </p>
+              <p>
+                He currently serves as the <strong className="text-gold">General Manager</strong> of Grand Leone Group, where he oversees business operations, strategic planning, customer experience and organizational growth.
+              </p>
+              <p>
+                His passion for leadership, innovation and organizational management has enabled him to successfully manage businesses across multiple industries including hospitality, gaming, engineering and corporate administration.
+              </p>
+              <p>
+                Throughout his professional journey, he has consistently demonstrated integrity, discipline, professionalism and an unwavering commitment to excellence.
+              </p>
+              <p>
+                He strongly believes in empowering young professionals, creating employment opportunities and contributing to Sierra Leone's economic development through entrepreneurship and responsible leadership.
+              </p>
+            </div>
 
-            {/* Key Stats - Mobile Friendly */}
+            {/* Key Stats */}
             <div className="grid grid-cols-2 gap-3 md:gap-4 mt-6 md:mt-8">
               <div className="bg-white/80 dark:bg-white/5 p-4 rounded-xl border border-gold/20">
                 <div className="text-2xl md:text-3xl font-bold text-gold">12+</div>
-                <div className="text-xs md:text-sm text-gray-600 dark:text-gray-300">Years of Leadership</div>
+                <div className="text-xs md:text-sm text-gray-700 dark:text-gray-300">Years of Leadership</div>
               </div>
               <div className="bg-white/80 dark:bg-white/5 p-4 rounded-xl border border-gold/20">
                 <div className="text-2xl md:text-3xl font-bold text-gold">3+</div>
-                <div className="text-xs md:text-sm text-gray-600 dark:text-gray-300">Companies Managed</div>
+                <div className="text-xs md:text-sm text-gray-700 dark:text-gray-300">Companies Managed</div>
               </div>
             </div>
 
-            {/* Core Values - Mobile Friendly */}
+            {/* Core Values */}
             <div className="mt-6 md:mt-8">
               <h3 className="text-base md:text-lg font-semibold text-navy dark:text-white mb-3">Core Values</h3>
               <div className="flex flex-wrap gap-2">
@@ -80,7 +97,7 @@ const About = () => {
           </motion.div>
         </div>
 
-        {/* Education Timeline - Mobile Friendly */}
+        {/* Education Timeline */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -109,14 +126,14 @@ const About = () => {
                   <span className="text-xs text-gray-500 dark:text-gray-400">{edu.location}</span>
                 </div>
                 {edu.description && (
-                  <p className="text-gray-600 dark:text-gray-300 mt-1 md:mt-2 text-xs md:text-sm">{edu.description}</p>
+                  <p className="text-gray-700 dark:text-gray-300 mt-1 md:mt-2 text-xs md:text-sm">{edu.description}</p>
                 )}
               </motion.div>
             ))}
           </div>
         </motion.div>
 
-        {/* Career Timeline - Mobile Friendly */}
+        {/* Career Timeline */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -144,7 +161,7 @@ const About = () => {
                   <span className="text-xs text-gray-500 dark:text-gray-400">{job.period}</span>
                 </div>
                 {job.description && (
-                  <p className="text-gray-600 dark:text-gray-300 mt-1 md:mt-2 text-xs md:text-sm">{job.description}</p>
+                  <p className="text-gray-700 dark:text-gray-300 mt-1 md:mt-2 text-xs md:text-sm">{job.description}</p>
                 )}
               </motion.div>
             ))}
