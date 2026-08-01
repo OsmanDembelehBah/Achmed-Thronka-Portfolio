@@ -1,16 +1,12 @@
 // ============================================================
-// Achmed Thronka - Data File (Production Ready)
+// Achmed Thronka - Data File
 // ============================================================
 
-// ============================================================
-// 1. PROFILE IMAGES - Using /public/ paths
-// ============================================================
+// Profile Images - Using direct paths
 export const profileImage = '/images/achmed-profie.jpeg';
 export const aboutImage = '/images/achmed-about.jpeg';
 
-// ============================================================
-// 2. SLIDESHOW IMAGES
-// ============================================================
+// Slideshow Images
 export const slideshowImages = [
   '/images/slideshow/Slides2.jpeg',
   '/images/slideshow/slides3.jpeg',
@@ -18,16 +14,9 @@ export const slideshowImages = [
   '/images/achmed-profie.jpeg',
   '/images/achmed-about.jpeg',
   '/images/achmedProfile3.jpeg',
-  '/images/slideshow/ahmed-1.jpg',
-  '/images/slideshow/ahmed-2.jpg',
-  '/images/slideshow/ahmed-3.jpg',
-  '/images/slideshow/ahmed-4.jpg',
-  '/images/slideshow/ahmed-5.jpg',
 ];
 
-// ============================================================
-// 3. ABOUT DATA
-// ============================================================
+// About Data
 export const aboutData = {
   name: 'Achmed Thronka',
   title: 'CEO & Founder',
@@ -47,12 +36,10 @@ export const aboutData = {
   mission: 'To empower communities through innovative engineering solutions and ethical business practices.',
   vision: 'To create sustainable businesses that drive economic growth and social development in Sierra Leone and beyond.',
   values: ['Leadership', 'Integrity', 'Innovation', 'Excellence', 'Discipline', 'Community Impact'],
-  image: '/images/achmed-about.jpeg',
+  image: aboutImage,
 };
 
-// ============================================================
-// 4. EDUCATION DATA
-// ============================================================
+// Education Data
 export const educationData = [
   {
     id: 1,
@@ -84,9 +71,7 @@ export const educationData = [
   },
 ];
 
-// ============================================================
-// 5. CAREER EXPERIENCE DATA
-// ============================================================
+// Career Data
 export const careerData = [
   {
     id: 1,
@@ -132,9 +117,7 @@ export const careerData = [
   },
 ];
 
-// ============================================================
-// 6. VENTURES DATA
-// ============================================================
+// Ventures Data
 export const venturesData = [
   {
     id: 1,
@@ -165,51 +148,27 @@ export const venturesData = [
   },
 ];
 
-// ============================================================
-// 7. GALLERY IMAGES
-// ============================================================
+// Gallery Images
 export const galleryImages = [
-  // --- BUSINESS ---
   { id: 1, src: '/images/gallery/business/Business1.jpeg', category: 'Business' },
   { id: 2, src: '/images/gallery/business/Business2.jpeg', category: 'Business' },
-  
-  // --- LEADERSHIP ---
   { id: 3, src: '/images/gallery/leadership/manager.jpeg', category: 'Leadership' },
   { id: 4, src: '/images/gallery/leadership/Manager3.jpeg', category: 'Leadership' },
   { id: 5, src: '/images/gallery/leadership/Manager4.jpeg', category: 'Leadership' },
-  
-  // --- EVENTS ---
   { id: 6, src: '/images/gallery/events/local4.jpeg', category: 'Events' },
   { id: 7, src: '/images/gallery/events/mmm2.jpeg', category: 'Events' },
-  
-  // --- WHITE DOVE ---
   { id: 8, src: '/images/gallery/white-dove/white Dove.jpg', category: 'White Dove' },
-  { id: 9, src: '/images/gallery/white-dove/white-dove-1.jpg', category: 'White Dove' },
-  { id: 10, src: '/images/gallery/white-dove/white-dove-2.jpg', category: 'White Dove' },
-  
-  // --- GRAND LEONE ---
-  { id: 11, src: '/images/gallery/grand-leone/GrandLeone Casino.jpg', category: 'Grand Leone' },
-  { id: 12, src: '/images/gallery/grand-leone/GrandLeoneCasino2.jpg', category: 'Grand Leone' },
-  { id: 13, src: '/images/gallery/grand-leone/GrandLeoneCasino3.jpg', category: 'Grand Leone' },
-  { id: 14, src: '/images/gallery/grand-leone/GrandLeoneCasino4.jpg', category: 'Grand Leone' },
-  
-  // --- NEW PHOTOS ---
-  { id: 15, src: '/images/gallery/New-Photos/Slides2.jpeg', category: 'Leadership' },
-  { id: 16, src: '/images/gallery/New-Photos/slides3.jpeg', category: 'Events' },
-  { id: 17, src: '/images/gallery/New-Photos/slides4.jpeg', category: 'Business' },
-  
-  // --- COMMUNITY ---
-  { id: 18, src: '/images/gallery/community/jats5.jpeg', category: 'Community' },
-  { id: 19, src: '/images/gallery/community/Pa2.jpeg', category: 'Community' },
-  { id: 20, src: '/images/gallery/community/achmed1.jpeg', category: 'Community' },
-  { id: 21, src: '/images/gallery/community/achmed3.jpeg', category: 'Community' },
-  { id: 22, src: '/images/gallery/community/achmed-about4.jpeg', category: 'Community' },
-  { id: 23, src: '/images/gallery/community/achmedProfile3.jpeg', category: 'Community' },
+  { id: 9, src: '/images/gallery/grand-leone/GrandLeoneCasino4.jpg', category: 'Grand Leone' },
+  { id: 10, src: '/images/gallery/community/jats5.jpeg', category: 'Community' },
+  { id: 11, src: '/images/gallery/community/Pa2.jpeg', category: 'Community' },
+  { id: 12, src: '/images/gallery/community/achmed1.jpeg', category: 'Community' },
+  { id: 13, src: '/images/gallery/community/achmed3.jpeg', category: 'Community' },
+  { id: 14, src: '/images/gallery/New-Photos/Slides2.jpeg', category: 'Business' },
+  { id: 15, src: '/images/gallery/New-Photos/slides3.jpeg', category: 'Events' },
+  { id: 16, src: '/images/gallery/New-Photos/slides4.jpeg', category: 'Leadership' },
 ];
 
-// ============================================================
-// 8. ACHIEVEMENTS DATA
-// ============================================================
+// Achievements
 export const achievementsData = [
   { label: 'Years of Leadership', value: 12, suffix: '+' },
   { label: 'CEO & Founder', value: 1, suffix: '' },
@@ -220,9 +179,7 @@ export const achievementsData = [
   { label: 'Years as GM', value: 12, suffix: '+' },
 ];
 
-// ============================================================
-// 9. CONTACT INFORMATION
-// ============================================================
+// Contact Information
 export const contactData = {
   email: 'achmed.thronka123@gmail.com',
   phone1: '+232 79 419 105',
@@ -232,13 +189,11 @@ export const contactData = {
   social: {
     facebook: 'https://www.facebook.com/achmed.thoronka.1?mibextid=ZbWKwL',
     linkedin: 'https://sl.linkedin.com/in/achmed-thoronka-0483a93ab',
-    instagram: '#', // TODO: Replace with actual Instagram URL when available
+    instagram: '#',
   },
 };
 
-// ============================================================
-// 10. NAVIGATION LINKS
-// ============================================================
+// Navigation Links
 export const navLinks = [
   { name: 'Home', href: '#home' },
   { name: 'About', href: '#about' },

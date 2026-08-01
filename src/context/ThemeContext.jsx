@@ -3,26 +3,26 @@ import { createContext, useState, useContext, useCallback, useMemo, useEffect } 
 const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
-  const [dark, setDark] = useState(() => {
-    if (typeof window !== "undefined") {
-      return localStorage.getItem("theme") === "dark";
-    }
-    return false;
-  });
+  // Set dark mode to FALSE by default
+  const [dark, setDark] = useState(false);
 
   const toggleDark = useCallback(() => {
-    setDark((prev) => !prev);
+    setDark((prev) => {
+      const newDark = !prev;
+      localStorage.setItem("theme", newDark ? "dark" : "light");
+      return newDark;
+    });
   }, []);
 
   useEffect(() => {
-    const theme = dark ? "dark" : "light";
-    localStorage.setItem("theme", theme);
-    if (dark) {
-      document.documentElement.classList.add("dark");
+    // Check localStorage but default to light mode
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") {
+      setDark(true);
     } else {
-      document.documentElement.classList.remove("dark");
+      setDark(false); // Force light mode
     }
-  }, [dark]);
+  }, []);
 
   const value = useMemo(() => ({ dark, toggleDark, isDark: dark }), [dark, toggleDark]);
 
