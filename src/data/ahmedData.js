@@ -1,28 +1,28 @@
 // ============================================================
-// Achmed Thronka - Data File
+// Achmed Thronka - Data File (Production Ready)
 // ============================================================
 
 // ============================================================
-// 1. PROFILE IMAGES
+// 1. PROFILE IMAGES - Using /public/ paths
 // ============================================================
-export const profileImage = '/src/assets/images/achmed-profie.jpeg';
-export const aboutImage = '/src/assets/images/achmed-about.jpeg';
+export const profileImage = '/images/achmed-profie.jpeg';
+export const aboutImage = '/images/achmed-about.jpeg';
 
 // ============================================================
 // 2. SLIDESHOW IMAGES
 // ============================================================
 export const slideshowImages = [
-  '/src/assets/images/slideshow/Slides2.jpeg',
-  '/src/assets/images/slideshow/slides3.jpeg',
-  '/src/assets/images/slideshow/slides4.jpeg',
-  '/src/assets/images/achmed-profie.jpeg',
-  '/src/assets/images/achmed-about.jpeg',
-  '/src/assets/images/achmedProfile3.jpeg',
-  '/src/assets/images/slideshow/ahmed-1.jpg',
-  '/src/assets/images/slideshow/ahmed-2.jpg',
-  '/src/assets/images/slideshow/ahmed-3.jpg',
-  '/src/assets/images/slideshow/ahmed-4.jpg',
-  '/src/assets/images/slideshow/ahmed-5.jpg',
+  '/images/slideshow/Slides2.jpeg',
+  '/images/slideshow/slides3.jpeg',
+  '/images/slideshow/slides4.jpeg',
+  '/images/achmed-profie.jpeg',
+  '/images/achmed-about.jpeg',
+  '/images/achmedProfile3.jpeg',
+  '/images/slideshow/ahmed-1.jpg',
+  '/images/slideshow/ahmed-2.jpg',
+  '/images/slideshow/ahmed-3.jpg',
+  '/images/slideshow/ahmed-4.jpg',
+  '/images/slideshow/ahmed-5.jpg',
 ];
 
 // ============================================================
@@ -47,7 +47,7 @@ export const aboutData = {
   mission: 'To empower communities through innovative engineering solutions and ethical business practices.',
   vision: 'To create sustainable businesses that drive economic growth and social development in Sierra Leone and beyond.',
   values: ['Leadership', 'Integrity', 'Innovation', 'Excellence', 'Discipline', 'Community Impact'],
-  image: aboutImage,
+  image: '/images/achmed-about.jpeg',
 };
 
 // ============================================================
@@ -133,15 +133,15 @@ export const careerData = [
 ];
 
 // ============================================================
-// 6. VENTURES DATA (Updated with Real URLs)
+// 6. VENTURES DATA
 // ============================================================
 export const venturesData = [
   {
     id: 1,
     title: 'White Dove Electrical & Engineering Company',
     description: `Sierra Leone's premier electrical engineering firm specializing in power systems, industrial installations, renewable energy solutions, and electrical infrastructure development.`,
-    image: '/src/assets/images/gallery/white-dove/white Dove.jpg',
-    logo: '/src/assets/logos/White-Dove-.jpeg',
+    image: '/images/gallery/white-dove/white Dove.jpg',
+    logo: '/logos/White-Dove-.jpeg',
     website: '#',
     externalUrl: null,
   },
@@ -149,8 +149,8 @@ export const venturesData = [
     id: 2,
     title: 'Grand Leone Casino',
     description: `A premier entertainment destination that combines luxury, hospitality, and responsible gaming. As General Manager, Achmed leads the establishment to maintain its position as one of West Africa's most prestigious entertainment venues.`,
-    image: '/src/assets/images/gallery/grand-leone/GrandLeoneCasino4.jpg',
-    logo: '/src/assets/logos/GrandLeoneCasino.jpg',
+    image: '/images/gallery/grand-leone/GrandLeoneCasino4.jpg',
+    logo: '/logos/GrandLeoneCasino.jpg',
     website: 'https://www.worldcasinodirectory.com/casino/grand-leone-casino',
     externalUrl: 'https://www.worldcasinodirectory.com/casino/grand-leone-casino',
   },
@@ -158,8 +158,8 @@ export const venturesData = [
     id: 3,
     title: 'Times Mansion',
     description: `A leading five-star hospitality establishment in Sierra Leone known for delivering premium accommodation, exceptional customer service and luxury experiences. Under Achmed's leadership as General Manager, Times Mansion continues to set the standard for luxury hospitality in the region.`,
-    image: '/src/assets/logos/Times Mansion.jpeg',
-    logo: '/src/assets/logos/Times Mansion.jpeg',
+    image: '/logos/Times Mansion.jpeg',
+    logo: '/logos/Times Mansion.jpeg',
     website: 'https://www.booking.com/hotel/sl/times-mansion-freetown.html',
     externalUrl: 'https://www.booking.com/hotel/sl/times-mansion-freetown.html',
   },
@@ -170,41 +170,41 @@ export const venturesData = [
 // ============================================================
 export const galleryImages = [
   // --- BUSINESS ---
-  { id: 1, src: '/src/assets/images/gallery/business/Business1.jpeg', category: 'Business' },
-  { id: 2, src: '/src/assets/images/gallery/business/Business2.jpeg', category: 'Business' },
+  { id: 1, src: '/images/gallery/business/Business1.jpeg', category: 'Business' },
+  { id: 2, src: '/images/gallery/business/Business2.jpeg', category: 'Business' },
   
   // --- LEADERSHIP ---
-  { id: 3, src: '/src/assets/images/gallery/leadership/manager.jpeg', category: 'Leadership' },
-  { id: 4, src: '/src/assets/images/gallery/leadership/Manager3.jpeg', category: 'Leadership' },
-  { id: 5, src: '/src/assets/images/gallery/leadership/Manager4.jpeg', category: 'Leadership' },
+  { id: 3, src: '/images/gallery/leadership/manager.jpeg', category: 'Leadership' },
+  { id: 4, src: '/images/gallery/leadership/Manager3.jpeg', category: 'Leadership' },
+  { id: 5, src: '/images/gallery/leadership/Manager4.jpeg', category: 'Leadership' },
   
   // --- EVENTS ---
-  { id: 6, src: '/src/assets/images/gallery/events/local4.jpeg', category: 'Events' },
-  { id: 7, src: '/src/assets/images/gallery/events/mmm2.jpeg', category: 'Events' },
+  { id: 6, src: '/images/gallery/events/local4.jpeg', category: 'Events' },
+  { id: 7, src: '/images/gallery/events/mmm2.jpeg', category: 'Events' },
   
   // --- WHITE DOVE ---
-  { id: 8, src: '/src/assets/images/gallery/white-dove/white Dove.jpg', category: 'White Dove' },
-  { id: 9, src: '/src/assets/images/gallery/white-dove/white-dove-1.jpg', category: 'White Dove' },
-  { id: 10, src: '/src/assets/images/gallery/white-dove/white-dove-2.jpg', category: 'White Dove' },
+  { id: 8, src: '/images/gallery/white-dove/white Dove.jpg', category: 'White Dove' },
+  { id: 9, src: '/images/gallery/white-dove/white-dove-1.jpg', category: 'White Dove' },
+  { id: 10, src: '/images/gallery/white-dove/white-dove-2.jpg', category: 'White Dove' },
   
   // --- GRAND LEONE ---
-  { id: 11, src: '/src/assets/images/gallery/grand-leone/GrandLeone Casino.jpg', category: 'Grand Leone' },
-  { id: 12, src: '/src/assets/images/gallery/grand-leone/GrandLeoneCasino2.jpg', category: 'Grand Leone' },
-  { id: 13, src: '/src/assets/images/gallery/grand-leone/GrandLeoneCasino3.jpg', category: 'Grand Leone' },
-  { id: 14, src: '/src/assets/images/gallery/grand-leone/GrandLeoneCasino4.jpg', category: 'Grand Leone' },
+  { id: 11, src: '/images/gallery/grand-leone/GrandLeone Casino.jpg', category: 'Grand Leone' },
+  { id: 12, src: '/images/gallery/grand-leone/GrandLeoneCasino2.jpg', category: 'Grand Leone' },
+  { id: 13, src: '/images/gallery/grand-leone/GrandLeoneCasino3.jpg', category: 'Grand Leone' },
+  { id: 14, src: '/images/gallery/grand-leone/GrandLeoneCasino4.jpg', category: 'Grand Leone' },
   
   // --- NEW PHOTOS ---
-  { id: 15, src: '/src/assets/images/gallery/New-Photos/Slides2.jpeg', category: 'Leadership' },
-  { id: 16, src: '/src/assets/images/gallery/New-Photos/slides3.jpeg', category: 'Events' },
-  { id: 17, src: '/src/assets/images/gallery/New-Photos/slides4.jpeg', category: 'Business' },
+  { id: 15, src: '/images/gallery/New-Photos/Slides2.jpeg', category: 'Leadership' },
+  { id: 16, src: '/images/gallery/New-Photos/slides3.jpeg', category: 'Events' },
+  { id: 17, src: '/images/gallery/New-Photos/slides4.jpeg', category: 'Business' },
   
   // --- COMMUNITY ---
-  { id: 18, src: '/src/assets/images/gallery/community/jats5.jpeg', category: 'Community' },
-  { id: 19, src: '/src/assets/images/gallery/community/Pa2.jpeg', category: 'Community' },
-  { id: 20, src: '/src/assets/images/gallery/community/achmed1.jpeg', category: 'Community' },
-  { id: 21, src: '/src/assets/images/gallery/community/achmed3.jpeg', category: 'Community' },
-  { id: 22, src: '/src/assets/images/gallery/community/achmed-about4.jpeg', category: 'Community' },
-  { id: 23, src: '/src/assets/images/gallery/community/achmedProfile3.jpeg', category: 'Community' },
+  { id: 18, src: '/images/gallery/community/jats5.jpeg', category: 'Community' },
+  { id: 19, src: '/images/gallery/community/Pa2.jpeg', category: 'Community' },
+  { id: 20, src: '/images/gallery/community/achmed1.jpeg', category: 'Community' },
+  { id: 21, src: '/images/gallery/community/achmed3.jpeg', category: 'Community' },
+  { id: 22, src: '/images/gallery/community/achmed-about4.jpeg', category: 'Community' },
+  { id: 23, src: '/images/gallery/community/achmedProfile3.jpeg', category: 'Community' },
 ];
 
 // ============================================================
