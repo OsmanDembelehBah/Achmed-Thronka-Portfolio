@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Achmed Thronka · Business Executive</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body { font-family: 'Inter', system-ui, -apple-system, sans-serif; background-color: #0b1a33; }
+      .glass { background: rgba(255,255,255,0.08); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.1); }
+      .dark .glass { background: rgba(10,10,20,0.6); backdrop-filter: blur(14px); }
+      .text-gold { color: #d4af37; }
+      .bg-gold { background-color: #d4af37; }
+      .border-gold { border-color: #d4af37; }
+      .hover-gold:hover { color: #d4af37; }
+      .gold-glow { text-shadow: 0 0 30px rgba(212,175,55,0.25); }
+      .bg-navy { background-color: #0b1a33; }
+      .masonry-grid { column-count: 3; column-gap: 1.2rem; }
+      @media (max-width: 768px) { .masonry-grid { column-count: 2; } }
+      @media (max-width: 480px) { .masonry-grid { column-count: 1; } }
+      .shadow-premium { box-shadow: 0 20px 40px -12px rgba(0,0,0,0.4); }
+      .shadow-glow { box-shadow: 0 0 30px rgba(212,175,55,0.15); }
+      .transition-smooth { transition: all 0.3s cubic-bezier(0.4,0,0.2,1); }
+      ::-webkit-scrollbar { width: 8px; }
+      ::-webkit-scrollbar-track { background: #0b1a33; }
+      ::-webkit-scrollbar-thumb { background: #d4af37; border-radius: 4px; }
+      ::-webkit-scrollbar-thumb:hover { background: #c4a030; }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
