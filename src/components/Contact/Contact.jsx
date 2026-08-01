@@ -7,7 +7,6 @@ import {
   MapPin,
   MessageSquare,
   Linkedin,
-  Twitter,
   Instagram,
   Facebook,
   Send,
@@ -19,7 +18,7 @@ import { contactData } from '../../data/ahmedData';
 
 const Contact = () => {
   const formRef = useRef();
-  const [formStatus, setFormStatus] = useState('idle'); // idle | loading | success | error
+  const [formStatus, setFormStatus] = useState('idle');
   const [errorMessage, setErrorMessage] = useState('');
   const [formData, setFormData] = useState({
     name: '',
@@ -29,11 +28,10 @@ const Contact = () => {
   });
   const [errors, setErrors] = useState({});
 
-  // TODO: Replace these with your EmailJS credentials
-  // Sign up at https://www.emailjs.com/ to get your credentials
-  const EMAILJS_SERVICE_ID = 'service_xxxxxxxx'; // Replace with your service ID
-  const EMAILJS_TEMPLATE_ID = 'template_xxxxxxxx'; // Replace with your template ID
-  const EMAILJS_PUBLIC_KEY = 'xxxxxxxxxxxxxxxx'; // Replace with your public key
+  // TODO: Replace with your EmailJS credentials
+  const EMAILJS_SERVICE_ID = 'service_xxxxxxxx';
+  const EMAILJS_TEMPLATE_ID = 'template_xxxxxxxx';
+  const EMAILJS_PUBLIC_KEY = 'xxxxxxxxxxxxxxxx';
 
   const validateForm = () => {
     const newErrors = {};
@@ -65,7 +63,6 @@ const Contact = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
-    // Clear error for this field when user starts typing
     if (errors[name]) {
       setErrors({ ...errors, [name]: '' });
     }
@@ -82,7 +79,6 @@ const Contact = () => {
     setErrorMessage('');
 
     try {
-      // If EmailJS is configured, send the email
       if (EMAILJS_SERVICE_ID !== 'service_xxxxxxxx') {
         await emailjs.sendForm(
           EMAILJS_SERVICE_ID,
@@ -91,7 +87,6 @@ const Contact = () => {
           EMAILJS_PUBLIC_KEY
         );
       } else {
-        // Fallback: Simulate sending (for demo)
         await new Promise((resolve) => setTimeout(resolve, 1500));
         console.log('Email would be sent to:', contactData.email);
         console.log('Form data:', formData);
@@ -117,77 +112,77 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-24 px-6 bg-white dark:bg-navy/90">
+    <section id="contact" className="py-16 md:py-24 px-4 md:px-6 bg-white dark:bg-navy/95">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-12"
+          className="text-center mb-10 md:mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-navy dark:text-white">
+          <h2 className="text-3xl md:text-5xl font-bold text-navy dark:text-white">
             Contact <span className="text-gold">Me</span>
           </h2>
-          <p className="text-gray-600 dark:text-gray-300 mt-3">
+          <p className="text-gray-600 dark:text-gray-300 mt-2 text-sm md:text-base">
             Let's connect and explore opportunities
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12">
-          {/* Contact Info */}
+        <div className="grid md:grid-cols-2 gap-8 md:gap-12">
+          {/* Contact Info - Mobile Friendly */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <div className="space-y-4">
-              <div className="flex items-start gap-4 p-4 bg-gray-50 dark:bg-white/5 rounded-xl hover:shadow-md transition-all border border-gold/10 hover:border-gold/30">
-                <Mail className="text-gold mt-1 flex-shrink-0" size={22} />
+            <div className="space-y-3 md:space-y-4">
+              <div className="flex items-start gap-3 md:gap-4 p-3 md:p-4 bg-gray-50 dark:bg-white/5 rounded-xl hover:shadow-md transition-all border border-gold/10 hover:border-gold/30">
+                <Mail className="text-gold mt-1 flex-shrink-0" size={18} />
                 <div>
-                  <div className="font-semibold text-navy dark:text-white">Email</div>
+                  <div className="font-semibold text-navy dark:text-white text-sm">Email</div>
                   <a
                     href={`mailto:${contactData.email}`}
-                    className="text-gray-600 dark:text-gray-300 hover:text-gold transition"
+                    className="text-gray-600 dark:text-gray-300 hover:text-gold transition text-sm break-all"
                   >
                     {contactData.email}
                   </a>
                 </div>
               </div>
 
-              <div className="flex items-start gap-4 p-4 bg-gray-50 dark:bg-white/5 rounded-xl hover:shadow-md transition-all border border-gold/10 hover:border-gold/30">
-                <Phone className="text-gold mt-1 flex-shrink-0" size={22} />
+              <div className="flex items-start gap-3 md:gap-4 p-3 md:p-4 bg-gray-50 dark:bg-white/5 rounded-xl hover:shadow-md transition-all border border-gold/10 hover:border-gold/30">
+                <Phone className="text-gold mt-1 flex-shrink-0" size={18} />
                 <div>
-                  <div className="font-semibold text-navy dark:text-white">Phone</div>
+                  <div className="font-semibold text-navy dark:text-white text-sm">Phone</div>
                   <a
                     href={`tel:${contactData.phone1}`}
-                    className="text-gray-600 dark:text-gray-300 hover:text-gold transition block"
+                    className="text-gray-600 dark:text-gray-300 hover:text-gold transition text-sm block"
                   >
                     {contactData.phone1}
                   </a>
                   <a
                     href={`tel:${contactData.phone2}`}
-                    className="text-gray-600 dark:text-gray-300 hover:text-gold transition block"
+                    className="text-gray-600 dark:text-gray-300 hover:text-gold transition text-sm block"
                   >
                     {contactData.phone2}
                   </a>
                 </div>
               </div>
 
-              <div className="flex items-start gap-4 p-4 bg-gray-50 dark:bg-white/5 rounded-xl hover:shadow-md transition-all border border-gold/10 hover:border-gold/30">
-                <MapPin className="text-gold mt-1 flex-shrink-0" size={22} />
+              <div className="flex items-start gap-3 md:gap-4 p-3 md:p-4 bg-gray-50 dark:bg-white/5 rounded-xl hover:shadow-md transition-all border border-gold/10 hover:border-gold/30">
+                <MapPin className="text-gold mt-1 flex-shrink-0" size={18} />
                 <div>
-                  <div className="font-semibold text-navy dark:text-white">Office</div>
-                  <div className="text-gray-600 dark:text-gray-300">{contactData.office}</div>
+                  <div className="font-semibold text-navy dark:text-white text-sm">Office</div>
+                  <div className="text-gray-600 dark:text-gray-300 text-sm">{contactData.office}</div>
                 </div>
               </div>
 
-              <div className="flex items-start gap-4 p-4 bg-gray-50 dark:bg-white/5 rounded-xl hover:shadow-md transition-all border border-gold/10 hover:border-gold/30">
-                <MessageSquare className="text-gold mt-1 flex-shrink-0" size={22} />
+              <div className="flex items-start gap-3 md:gap-4 p-3 md:p-4 bg-gray-50 dark:bg-white/5 rounded-xl hover:shadow-md transition-all border border-gold/10 hover:border-gold/30">
+                <MessageSquare className="text-gold mt-1 flex-shrink-0" size={18} />
                 <div>
-                  <div className="font-semibold text-navy dark:text-white">WhatsApp</div>
+                  <div className="font-semibold text-navy dark:text-white text-sm">WhatsApp</div>
                   <a
                     href={`https://wa.me/${contactData.whatsapp.replace(/\s/g, '')}`}
-                    className="text-gray-600 dark:text-gray-300 hover:text-gold transition"
+                    className="text-gray-600 dark:text-gray-300 hover:text-gold transition text-sm"
                   >
                     Chat with me
                   </a>
@@ -195,8 +190,8 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* Social Links - Updated: Facebook, Instagram, LinkedIn only */}
-            <div className="mt-8">
+            {/* Social Links */}
+            <div className="mt-6 md:mt-8">
               <h4 className="text-sm font-semibold text-navy dark:text-white mb-3">Connect with me</h4>
               <div className="flex gap-3">
                 <a
@@ -230,14 +225,14 @@ const Contact = () => {
             </div>
           </motion.div>
 
-          {/* Contact Form */}
+          {/* Contact Form - Mobile Friendly */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="bg-gradient-to-br from-navy/5 to-gold/5 dark:from-navy/80 dark:to-navy/90 p-8 rounded-2xl shadow-xl backdrop-blur-sm border border-gray-200 dark:border-white/10"
+            className="bg-gradient-to-br from-navy/5 to-gold/5 dark:from-navy/80 dark:to-navy/90 p-6 md:p-8 rounded-2xl shadow-xl backdrop-blur-sm border border-gray-200 dark:border-white/10"
           >
-            <form ref={formRef} onSubmit={handleSubmit} className="space-y-5">
+            <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
               <div>
                 <label className="block text-sm font-medium text-navy dark:text-white/70 mb-1">
                   Your Name <span className="text-red-500">*</span>
@@ -250,7 +245,7 @@ const Contact = () => {
                   placeholder="Enter your name"
                   className={`w-full p-3 rounded-xl bg-white dark:bg-white/10 border ${
                     errors.name ? 'border-red-500' : 'border-gray-200 dark:border-white/10'
-                  } text-navy dark:text-white placeholder-gray-400 dark:placeholder-white/50 focus:outline-none focus:border-gold transition`}
+                  } text-navy dark:text-white placeholder-gray-400 dark:placeholder-white/50 focus:outline-none focus:border-gold transition text-sm`}
                 />
                 {errors.name && (
                   <p className="text-red-500 text-xs mt-1 flex items-center gap-1">
@@ -272,7 +267,7 @@ const Contact = () => {
                   placeholder="Enter your email"
                   className={`w-full p-3 rounded-xl bg-white dark:bg-white/10 border ${
                     errors.email ? 'border-red-500' : 'border-gray-200 dark:border-white/10'
-                  } text-navy dark:text-white placeholder-gray-400 dark:placeholder-white/50 focus:outline-none focus:border-gold transition`}
+                  } text-navy dark:text-white placeholder-gray-400 dark:placeholder-white/50 focus:outline-none focus:border-gold transition text-sm`}
                 />
                 {errors.email && (
                   <p className="text-red-500 text-xs mt-1 flex items-center gap-1">
@@ -294,7 +289,7 @@ const Contact = () => {
                   placeholder="Enter subject"
                   className={`w-full p-3 rounded-xl bg-white dark:bg-white/10 border ${
                     errors.subject ? 'border-red-500' : 'border-gray-200 dark:border-white/10'
-                  } text-navy dark:text-white placeholder-gray-400 dark:placeholder-white/50 focus:outline-none focus:border-gold transition`}
+                  } text-navy dark:text-white placeholder-gray-400 dark:placeholder-white/50 focus:outline-none focus:border-gold transition text-sm`}
                 />
                 {errors.subject && (
                   <p className="text-red-500 text-xs mt-1 flex items-center gap-1">
@@ -316,7 +311,7 @@ const Contact = () => {
                   placeholder="Tell me about your project or inquiry"
                   className={`w-full p-3 rounded-xl bg-white dark:bg-white/10 border ${
                     errors.message ? 'border-red-500' : 'border-gray-200 dark:border-white/10'
-                  } text-navy dark:text-white placeholder-gray-400 dark:placeholder-white/50 focus:outline-none focus:border-gold transition resize-none`}
+                  } text-navy dark:text-white placeholder-gray-400 dark:placeholder-white/50 focus:outline-none focus:border-gold transition resize-none text-sm`}
                 />
                 {errors.message && (
                   <p className="text-red-500 text-xs mt-1 flex items-center gap-1">
@@ -329,7 +324,7 @@ const Contact = () => {
               <button
                 type="submit"
                 disabled={formStatus === 'loading'}
-                className={`w-full px-8 py-3 bg-gold text-white font-semibold rounded-xl transition-all duration-300 shadow-lg hover:shadow-glow flex items-center justify-center gap-2 ${
+                className={`w-full px-8 py-3 bg-gold text-white font-semibold rounded-xl transition-all duration-300 shadow-lg hover:shadow-glow flex items-center justify-center gap-2 text-sm ${
                   formStatus === 'loading' ? 'opacity-70 cursor-not-allowed' : 'hover:scale-105'
                 }`}
               >
@@ -341,12 +336,12 @@ const Contact = () => {
                 ) : formStatus === 'success' ? (
                   <>
                     <CheckCircle size={20} />
-                    Message Sent Successfully!
+                    Message Sent!
                   </>
                 ) : formStatus === 'error' ? (
                   <>
                     <AlertCircle size={20} />
-                    {errorMessage || 'Failed to send. Please try again.'}
+                    {errorMessage || 'Failed to send'}
                   </>
                 ) : (
                   <>
@@ -355,16 +350,6 @@ const Contact = () => {
                   </>
                 )}
               </button>
-
-              {formStatus === 'success' && (
-                <motion.p
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="text-green-500 text-sm text-center mt-2"
-                >
-                  ✓ Your message has been sent successfully!
-                </motion.p>
-              )}
             </form>
           </motion.div>
         </div>

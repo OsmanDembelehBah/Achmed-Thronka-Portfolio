@@ -14,9 +14,10 @@ const Navbar = () => {
   const navLinks = [
     { name: 'Home', href: '#home' },
     { name: 'About', href: '#about' },
-    { name: 'Experience', href: '#ventures' },
+    { name: 'Ventures', href: '#ventures' },
     { name: 'Achievements', href: '#achievements' },
     { name: 'Gallery', href: '#gallery' },
+    { name: 'Videos', href: '#videos' },
   ];
 
   useEffect(() => {
@@ -41,7 +42,6 @@ const Navbar = () => {
         setIsVisible(true);
       }, 150);
 
-      // Update active section based on scroll position
       const sections = navLinks.map(link => link.href.substring(1));
       for (const section of sections) {
         const element = document.getElementById(section);
@@ -87,33 +87,36 @@ const Navbar = () => {
           duration: 0.4, 
           ease: 'easeInOut' 
         }}
-        className={`fixed top-4 left-0 right-0 z-50 px-4 md:px-6 transition-all duration-300 ${
-          scrolled ? 'top-2' : 'top-4'
-        }`}
+        className={`fixed top-2 md:top-4 left-0 right-0 z-50 px-3 md:px-6 transition-all duration-300`}
       >
-        <nav className="container mx-auto flex items-center justify-between rounded-2xl border border-white/10 bg-[#0B1120]/80 backdrop-blur-xl px-4 md:px-8 py-4 shadow-2xl">
+        <nav className="container mx-auto flex items-center justify-between rounded-2xl border border-white/10 bg-[#0B1120]/90 backdrop-blur-xl px-3 md:px-8 py-3 md:py-4 shadow-2xl">
           
-          {/* Logo Section */}
-          <div className="flex items-center gap-3 md:gap-4">
-            <a href="#home" className="text-3xl md:text-5xl font-serif cursor-pointer">
+          {/* Logo - Mobile Friendly */}
+          <div className="flex items-center gap-2 md:gap-4">
+            <a href="#home" className="text-2xl md:text-5xl font-serif cursor-pointer">
               <span className="text-white">A</span>
               <span className="text-yellow-400">T</span>
             </a>
 
-            <div className="w-px h-8 md:h-12 bg-yellow-500/40"></div>
+            <div className="w-px h-6 md:h-12 bg-yellow-500/40"></div>
 
-            <a href="#home" className="cursor-pointer">
-              <h1 className="text-base md:text-2xl font-bold tracking-wide">
+            <a href="#home" className="cursor-pointer hidden xs:block">
+              <h1 className="text-xs md:text-2xl font-bold tracking-wide">
                 <span className="text-white">ACHMED </span>
                 <span className="text-yellow-400">THRONKA</span>
               </h1>
-              <p className="uppercase text-[8px] md:text-[10px] tracking-[4px] md:tracking-[6px] text-gray-400">
+              <p className="uppercase text-[6px] md:text-[10px] tracking-[3px] md:tracking-[6px] text-gray-400 hidden sm:block">
                 Business Executive
               </p>
             </a>
           </div>
 
-          {/* Desktop Navigation - Contact removed */}
+          {/* Mobile - Show short name */}
+          <div className="flex items-center gap-2 md:hidden">
+            <span className="text-xs font-bold text-white">A.THRONKA</span>
+          </div>
+
+          {/* Desktop Navigation */}
           <ul className="hidden lg:flex items-center gap-6 xl:gap-10">
             {navLinks.map((link) => {
               const isActive = activeSection === link.href.substring(1);
@@ -138,29 +141,29 @@ const Navbar = () => {
             })}
           </ul>
 
-          {/* Right Side - Get In Touch Button */}
-          <div className="flex items-center gap-3">
+          {/* Right Side */}
+          <div className="flex items-center gap-2 md:gap-3">
             <button
               onClick={toggleDark}
-              className="text-white/80 hover:text-yellow-400 transition-colors duration-300 p-2"
+              className="text-white/80 hover:text-yellow-400 transition-colors duration-300 p-1.5 md:p-2"
             >
-              {dark ? <Sun size={20} className="text-yellow-400" /> : <Moon size={20} />}
+              {dark ? <Sun size={18} className="text-yellow-400" /> : <Moon size={18} />}
             </button>
 
             <button
               onClick={scrollToContact}
-              className="hidden lg:flex items-center gap-2 border border-yellow-400 text-yellow-400 px-4 md:px-7 py-2 md:py-3 rounded-xl hover:bg-yellow-400 hover:text-black transition-all duration-300 text-sm md:text-base font-medium cursor-pointer"
+              className="hidden md:flex items-center gap-2 border border-yellow-400 text-yellow-400 px-3 md:px-7 py-1.5 md:py-3 rounded-xl hover:bg-yellow-400 hover:text-black transition-all duration-300 text-xs md:text-sm font-medium cursor-pointer"
             >
-              <User size={18} />
-              GET IN TOUCH
+              <User size={16} />
+              <span className="hidden sm:inline">GET IN TOUCH</span>
+              <span className="sm:hidden">CONTACT</span>
             </button>
 
-            {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden text-white/80 hover:text-yellow-400 transition-colors duration-300 p-2"
+              className="lg:hidden text-white/80 hover:text-yellow-400 transition-colors duration-300 p-1.5"
             >
-              {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
 
@@ -174,14 +177,14 @@ const Navbar = () => {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="fixed top-[72px] md:top-[80px] left-4 right-4 z-40 lg:hidden rounded-2xl border border-white/10 bg-[#0B1120]/95 backdrop-blur-xl shadow-2xl overflow-hidden"
+            className="fixed top-[62px] md:top-[80px] left-3 right-3 z-40 lg:hidden rounded-2xl border border-white/10 bg-[#0B1120]/98 backdrop-blur-xl shadow-2xl overflow-hidden"
           >
-            <div className="px-6 py-6 space-y-1">
+            <div className="px-4 py-4 space-y-1">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
-                  className={`block px-4 py-3 rounded-lg transition-colors duration-300 text-base font-medium ${
+                  className={`block px-4 py-3 rounded-lg transition-colors duration-300 text-sm font-medium ${
                     activeSection === link.href.substring(1)
                       ? 'text-yellow-400 bg-yellow-400/10'
                       : 'text-white/80 hover:text-yellow-400 hover:bg-white/5'
@@ -193,9 +196,9 @@ const Navbar = () => {
               ))}
               <button
                 onClick={scrollToContact}
-                className="w-full mt-4 flex items-center justify-center gap-2 border border-yellow-400 text-yellow-400 px-6 py-3 rounded-xl hover:bg-yellow-400 hover:text-black transition-all duration-300 text-base font-medium cursor-pointer"
+                className="w-full mt-3 flex items-center justify-center gap-2 border border-yellow-400 text-yellow-400 px-4 py-3 rounded-xl hover:bg-yellow-400 hover:text-black transition-all duration-300 text-sm font-medium cursor-pointer"
               >
-                <User size={18} />
+                <User size={16} />
                 GET IN TOUCH
               </button>
             </div>
