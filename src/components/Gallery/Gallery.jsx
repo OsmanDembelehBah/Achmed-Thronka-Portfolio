@@ -18,42 +18,32 @@ const Gallery = () => {
   }, [filter]);
 
   return (
-    <section id="gallery" className="py-16 md:py-24 px-4 md:px-6 bg-gray-50 dark:bg-navy/70">
+    <section id="gallery" className="py-16 md:py-24 px-4 md:px-6" style={{ backgroundColor: '#f1f5f9' }}>
       <div className="max-w-6xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-10 md:mb-12"
-        >
-          <h2 className="text-3xl md:text-5xl font-bold text-navy dark:text-white">
-            Photo <span className="text-gold">Gallery</span>
+        <div className="text-center mb-10 md:mb-12">
+          <h2 className="text-3xl md:text-5xl font-bold" style={{ color: '#0b1a33' }}>
+            Photo <span style={{ color: '#d4af37' }}>Gallery</span>
           </h2>
-          <p className="text-gray-600 dark:text-gray-300 mt-2 text-sm md:text-base">
+          <p className="text-gray-600 mt-2 text-sm md:text-base">
             Capturing moments of leadership, business, and impact
           </p>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="flex flex-wrap justify-center gap-2 mb-8"
-        >
+        <div className="flex flex-wrap justify-center gap-2 mb-8">
           {categories.map((category) => (
             <button
               key={category}
               onClick={() => setFilter(category)}
               className={`px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-medium transition-all duration-300 ${
                 filter === category
-                  ? 'bg-gold text-navy shadow-lg'
-                  : 'bg-white/20 text-gray-700 dark:text-gray-300 hover:bg-gold/20'
+                  ? 'bg-gold text-white shadow-lg'
+                  : 'bg-white text-gray-700 hover:bg-gold/20'
               }`}
             >
               {category}
             </button>
           ))}
-        </motion.div>
+        </div>
 
         <div className="masonry-grid space-y-4">
           {filteredItems.map((item) => (
@@ -65,7 +55,7 @@ const Gallery = () => {
               className="break-inside-avoid cursor-pointer group"
               onClick={() => setLightbox(item.src)}
             >
-              <div className="relative overflow-hidden rounded-2xl shadow-lg bg-navy/10">
+              <div className="relative overflow-hidden rounded-2xl shadow-lg bg-white">
                 <img
                   src={item.src}
                   alt={`Gallery ${item.id}`}

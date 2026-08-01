@@ -1,5 +1,4 @@
-import React, { useState, useRef } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
 import {
   Mail,
   Phone,
@@ -9,179 +8,85 @@ import {
   Instagram,
   Facebook,
   Send,
-  CheckCircle,
-  Loader2,
-  AlertCircle,
 } from 'lucide-react';
 import { contactData } from '../../data/ahmedData';
 
 const Contact = () => {
-  const formRef = useRef();
   const [formStatus, setFormStatus] = useState('idle');
-  const [errorMessage, setErrorMessage] = useState('');
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     subject: '',
     message: '',
   });
-  const [errors, setErrors] = useState({});
-
-  const EMAILJS_SERVICE_ID = 'service_xxxxxxxx';
-  const EMAILJS_TEMPLATE_ID = 'template_xxxxxxxx';
-  const EMAILJS_PUBLIC_KEY = 'xxxxxxxxxxxxxxxx';
-
-  const validateForm = () => {
-    const newErrors = {};
-    
-    if (!formData.name.trim()) {
-      newErrors.name = 'Name is required';
-    }
-    
-    if (!formData.email.trim()) {
-      newErrors.email = 'Email is required';
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = 'Please enter a valid email address';
-    }
-    
-    if (!formData.subject.trim()) {
-      newErrors.subject = 'Subject is required';
-    }
-    
-    if (!formData.message.trim()) {
-      newErrors.message = 'Message is required';
-    } else if (formData.message.trim().length < 10) {
-      newErrors.message = 'Message must be at least 10 characters';
-    }
-    
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
-    if (errors[name]) {
-      setErrors({ ...errors, [name]: '' });
-    }
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    
-    if (!validateForm()) {
-      return;
-    }
-
     setFormStatus('loading');
-    setErrorMessage('');
-
-    try {
-      if (EMAILJS_SERVICE_ID !== 'service_xxxxxxxx') {
-        await emailjs.sendForm(
-          EMAILJS_SERVICE_ID,
-          EMAILJS_TEMPLATE_ID,
-          formRef.current,
-          EMAILJS_PUBLIC_KEY
-        );
-      } else {
-        await new Promise((resolve) => setTimeout(resolve, 1500));
-        console.log('Email would be sent to:', contactData.email);
-        console.log('Form data:', formData);
-      }
-
+    setTimeout(() => {
       setFormStatus('success');
       setFormData({ name: '', email: '', subject: '', message: '' });
-      setErrors({});
-      
-      setTimeout(() => {
-        setFormStatus('idle');
-      }, 5000);
-    } catch (error) {
-      console.error('Error sending email:', error);
-      setFormStatus('error');
-      setErrorMessage('Failed to send message. Please try again later.');
-      
-      setTimeout(() => {
-        setFormStatus('idle');
-        setErrorMessage('');
-      }, 5000);
-    }
+      setTimeout(() => setFormStatus('idle'), 3000);
+    }, 1500);
   };
 
   return (
-    <section id="contact" className="py-16 md:py-24 px-4 md:px-6 bg-white dark:bg-navy/95">
-      <div className="max-w-6xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-10 md:mb-12"
-        >
-          <h2 className="text-3xl md:text-5xl font-bold text-navy dark:text-white">
-            Contact <span className="text-gold">Me</span>
+    <section id="contact" style={{ padding: '4rem 1.5rem', backgroundColor: '#f8fafc' }}>
+      <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+        <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+          <h2 style={{ fontSize: '2.5rem', fontWeight: 'bold', color: '#0b1a33' }}>
+            Contact <span style={{ color: '#d4af37' }}>Me</span>
           </h2>
-          <p className="text-gray-600 dark:text-gray-300 mt-2 text-sm md:text-base">
+          <p style={{ color: '#64748b', marginTop: '0.5rem' }}>
             Let's connect and explore opportunities
           </p>
-        </motion.div>
+        </div>
 
-        <div className="grid md:grid-cols-2 gap-8 md:gap-12">
-          {/* Contact Info - Text now visible on all backgrounds */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-          >
-            <div className="space-y-3 md:space-y-4">
-              <div className="flex items-start gap-3 md:gap-4 p-3 md:p-4 bg-gray-50 dark:bg-white/5 rounded-xl hover:shadow-md transition-all border border-gold/10 hover:border-gold/30">
-                <Mail className="text-gold mt-1 flex-shrink-0" size={18} />
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem' }}>
+          {/* Contact Info */}
+          <div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem', padding: '1rem', backgroundColor: 'white', borderRadius: '0.75rem', boxShadow: '0 4px 6px rgba(0,0,0,0.05)', border: '1px solid rgba(212,175,55,0.1)' }}>
+                <Mail style={{ color: '#d4af37', marginTop: '0.25rem', flexShrink: 0 }} size={20} />
                 <div>
-                  <div className="font-semibold text-navy dark:text-white text-sm">Email</div>
-                  <a
-                    href={`mailto:${contactData.email}`}
-                    className="text-gray-700 dark:text-gray-300 hover:text-gold transition text-sm break-all"
-                  >
+                  <div style={{ fontWeight: '600', color: '#0b1a33', fontSize: '0.875rem' }}>Email</div>
+                  <a href={`mailto:${contactData.email}`} style={{ color: '#475569', textDecoration: 'none', fontSize: '0.875rem' }}>
                     {contactData.email}
                   </a>
                 </div>
               </div>
 
-              <div className="flex items-start gap-3 md:gap-4 p-3 md:p-4 bg-gray-50 dark:bg-white/5 rounded-xl hover:shadow-md transition-all border border-gold/10 hover:border-gold/30">
-                <Phone className="text-gold mt-1 flex-shrink-0" size={18} />
+              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem', padding: '1rem', backgroundColor: 'white', borderRadius: '0.75rem', boxShadow: '0 4px 6px rgba(0,0,0,0.05)', border: '1px solid rgba(212,175,55,0.1)' }}>
+                <Phone style={{ color: '#d4af37', marginTop: '0.25rem', flexShrink: 0 }} size={20} />
                 <div>
-                  <div className="font-semibold text-navy dark:text-white text-sm">Phone</div>
-                  <a
-                    href={`tel:${contactData.phone1}`}
-                    className="text-gray-700 dark:text-gray-300 hover:text-gold transition text-sm block"
-                  >
+                  <div style={{ fontWeight: '600', color: '#0b1a33', fontSize: '0.875rem' }}>Phone</div>
+                  <a href={`tel:${contactData.phone1}`} style={{ color: '#475569', textDecoration: 'none', fontSize: '0.875rem', display: 'block' }}>
                     {contactData.phone1}
                   </a>
-                  <a
-                    href={`tel:${contactData.phone2}`}
-                    className="text-gray-700 dark:text-gray-300 hover:text-gold transition text-sm block"
-                  >
+                  <a href={`tel:${contactData.phone2}`} style={{ color: '#475569', textDecoration: 'none', fontSize: '0.875rem', display: 'block' }}>
                     {contactData.phone2}
                   </a>
                 </div>
               </div>
 
-              <div className="flex items-start gap-3 md:gap-4 p-3 md:p-4 bg-gray-50 dark:bg-white/5 rounded-xl hover:shadow-md transition-all border border-gold/10 hover:border-gold/30">
-                <MapPin className="text-gold mt-1 flex-shrink-0" size={18} />
+              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem', padding: '1rem', backgroundColor: 'white', borderRadius: '0.75rem', boxShadow: '0 4px 6px rgba(0,0,0,0.05)', border: '1px solid rgba(212,175,55,0.1)' }}>
+                <MapPin style={{ color: '#d4af37', marginTop: '0.25rem', flexShrink: 0 }} size={20} />
                 <div>
-                  <div className="font-semibold text-navy dark:text-white text-sm">Office</div>
-                  <div className="text-gray-700 dark:text-gray-300 text-sm">{contactData.office}</div>
+                  <div style={{ fontWeight: '600', color: '#0b1a33', fontSize: '0.875rem' }}>Office</div>
+                  <div style={{ color: '#475569', fontSize: '0.875rem' }}>{contactData.office}</div>
                 </div>
               </div>
 
-              <div className="flex items-start gap-3 md:gap-4 p-3 md:p-4 bg-gray-50 dark:bg-white/5 rounded-xl hover:shadow-md transition-all border border-gold/10 hover:border-gold/30">
-                <MessageSquare className="text-gold mt-1 flex-shrink-0" size={18} />
+              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem', padding: '1rem', backgroundColor: 'white', borderRadius: '0.75rem', boxShadow: '0 4px 6px rgba(0,0,0,0.05)', border: '1px solid rgba(212,175,55,0.1)' }}>
+                <MessageSquare style={{ color: '#d4af37', marginTop: '0.25rem', flexShrink: 0 }} size={20} />
                 <div>
-                  <div className="font-semibold text-navy dark:text-white text-sm">WhatsApp</div>
-                  <a
-                    href={`https://wa.me/${contactData.whatsapp.replace(/\s/g, '')}`}
-                    className="text-gray-700 dark:text-gray-300 hover:text-gold transition text-sm"
-                  >
+                  <div style={{ fontWeight: '600', color: '#0b1a33', fontSize: '0.875rem' }}>WhatsApp</div>
+                  <a href={`https://wa.me/${contactData.whatsapp.replace(/\s/g, '')}`} style={{ color: '#475569', textDecoration: 'none', fontSize: '0.875rem' }}>
                     Chat with me
                   </a>
                 </div>
@@ -189,167 +94,119 @@ const Contact = () => {
             </div>
 
             {/* Social Links */}
-            <div className="mt-6 md:mt-8">
-              <h4 className="text-sm font-semibold text-navy dark:text-white mb-3">Connect with me</h4>
-              <div className="flex gap-3">
-                <a
-                  href={contactData.social.facebook}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-3 bg-gold/10 rounded-full hover:bg-gold/20 transition-all hover:scale-110"
-                  aria-label="Facebook"
-                >
-                  <Facebook size={20} className="text-gold" />
+            <div style={{ marginTop: '2rem' }}>
+              <h4 style={{ fontSize: '0.875rem', fontWeight: '600', color: '#0b1a33', marginBottom: '0.75rem' }}>Connect with me</h4>
+              <div style={{ display: 'flex', gap: '0.75rem' }}>
+                <a href={contactData.social.facebook} target="_blank" rel="noopener noreferrer" style={{ padding: '0.75rem', backgroundColor: 'rgba(212,175,55,0.1)', borderRadius: '9999px', transition: 'all 0.3s' }}>
+                  <Facebook size={20} style={{ color: '#d4af37' }} />
                 </a>
-                <a
-                  href={contactData.social.instagram}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-3 bg-gold/10 rounded-full hover:bg-gold/20 transition-all hover:scale-110"
-                  aria-label="Instagram"
-                >
-                  <Instagram size={20} className="text-gold" />
+                <a href={contactData.social.instagram} target="_blank" rel="noopener noreferrer" style={{ padding: '0.75rem', backgroundColor: 'rgba(212,175,55,0.1)', borderRadius: '9999px', transition: 'all 0.3s' }}>
+                  <Instagram size={20} style={{ color: '#d4af37' }} />
                 </a>
-                <a
-                  href={contactData.social.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-3 bg-gold/10 rounded-full hover:bg-gold/20 transition-all hover:scale-110"
-                  aria-label="LinkedIn"
-                >
-                  <Linkedin size={20} className="text-gold" />
+                <a href={contactData.social.linkedin} target="_blank" rel="noopener noreferrer" style={{ padding: '0.75rem', backgroundColor: 'rgba(212,175,55,0.1)', borderRadius: '9999px', transition: 'all 0.3s' }}>
+                  <Linkedin size={20} style={{ color: '#d4af37' }} />
                 </a>
               </div>
             </div>
-          </motion.div>
+          </div>
 
-          {/* Contact Form - Text now visible */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="bg-gradient-to-br from-navy/5 to-gold/5 dark:from-navy/80 dark:to-navy/90 p-6 md:p-8 rounded-2xl shadow-xl backdrop-blur-sm border border-gray-200 dark:border-white/10"
-          >
-            <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
+          {/* Contact Form */}
+          <div style={{ backgroundColor: 'white', padding: '2rem', borderRadius: '1rem', boxShadow: '0 10px 30px rgba(0,0,0,0.08)', border: '1px solid #e2e8f0' }}>
+            <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
               <div>
-                <label className="block text-sm font-medium text-navy dark:text-white/70 mb-1">
-                  Your Name <span className="text-red-500">*</span>
+                <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: '500', color: '#0b1a33', marginBottom: '0.25rem' }}>
+                  Your Name <span style={{ color: '#ef4444' }}>*</span>
                 </label>
                 <input
                   type="text"
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
+                  required
                   placeholder="Enter your name"
-                  className={`w-full p-3 rounded-xl bg-white dark:bg-white/10 border ${
-                    errors.name ? 'border-red-500' : 'border-gray-200 dark:border-white/10'
-                  } text-navy dark:text-white placeholder-gray-400 dark:placeholder-white/50 focus:outline-none focus:border-gold transition text-sm`}
+                  style={{ width: '100%', padding: '0.75rem', borderRadius: '0.75rem', backgroundColor: '#f8fafc', border: '1px solid #e2e8f0', color: '#0b1a33', outline: 'none', fontSize: '0.875rem' }}
                 />
-                {errors.name && (
-                  <p className="text-red-500 text-xs mt-1 flex items-center gap-1">
-                    <AlertCircle size={12} />
-                    {errors.name}
-                  </p>
-                )}
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-navy dark:text-white/70 mb-1">
-                  Email Address <span className="text-red-500">*</span>
+                <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: '500', color: '#0b1a33', marginBottom: '0.25rem' }}>
+                  Email Address <span style={{ color: '#ef4444' }}>*</span>
                 </label>
                 <input
                   type="email"
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
+                  required
                   placeholder="Enter your email"
-                  className={`w-full p-3 rounded-xl bg-white dark:bg-white/10 border ${
-                    errors.email ? 'border-red-500' : 'border-gray-200 dark:border-white/10'
-                  } text-navy dark:text-white placeholder-gray-400 dark:placeholder-white/50 focus:outline-none focus:border-gold transition text-sm`}
+                  style={{ width: '100%', padding: '0.75rem', borderRadius: '0.75rem', backgroundColor: '#f8fafc', border: '1px solid #e2e8f0', color: '#0b1a33', outline: 'none', fontSize: '0.875rem' }}
                 />
-                {errors.email && (
-                  <p className="text-red-500 text-xs mt-1 flex items-center gap-1">
-                    <AlertCircle size={12} />
-                    {errors.email}
-                  </p>
-                )}
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-navy dark:text-white/70 mb-1">
-                  Subject <span className="text-red-500">*</span>
+                <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: '500', color: '#0b1a33', marginBottom: '0.25rem' }}>
+                  Subject <span style={{ color: '#ef4444' }}>*</span>
                 </label>
                 <input
                   type="text"
                   name="subject"
                   value={formData.subject}
                   onChange={handleChange}
+                  required
                   placeholder="Enter subject"
-                  className={`w-full p-3 rounded-xl bg-white dark:bg-white/10 border ${
-                    errors.subject ? 'border-red-500' : 'border-gray-200 dark:border-white/10'
-                  } text-navy dark:text-white placeholder-gray-400 dark:placeholder-white/50 focus:outline-none focus:border-gold transition text-sm`}
+                  style={{ width: '100%', padding: '0.75rem', borderRadius: '0.75rem', backgroundColor: '#f8fafc', border: '1px solid #e2e8f0', color: '#0b1a33', outline: 'none', fontSize: '0.875rem' }}
                 />
-                {errors.subject && (
-                  <p className="text-red-500 text-xs mt-1 flex items-center gap-1">
-                    <AlertCircle size={12} />
-                    {errors.subject}
-                  </p>
-                )}
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-navy dark:text-white/70 mb-1">
-                  Message <span className="text-red-500">*</span>
+                <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: '500', color: '#0b1a33', marginBottom: '0.25rem' }}>
+                  Message <span style={{ color: '#ef4444' }}>*</span>
                 </label>
                 <textarea
                   rows="4"
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
+                  required
                   placeholder="Tell me about your project or inquiry"
-                  className={`w-full p-3 rounded-xl bg-white dark:bg-white/10 border ${
-                    errors.message ? 'border-red-500' : 'border-gray-200 dark:border-white/10'
-                  } text-navy dark:text-white placeholder-gray-400 dark:placeholder-white/50 focus:outline-none focus:border-gold transition resize-none text-sm`}
+                  style={{ width: '100%', padding: '0.75rem', borderRadius: '0.75rem', backgroundColor: '#f8fafc', border: '1px solid #e2e8f0', color: '#0b1a33', outline: 'none', resize: 'vertical', fontSize: '0.875rem' }}
                 />
-                {errors.message && (
-                  <p className="text-red-500 text-xs mt-1 flex items-center gap-1">
-                    <AlertCircle size={12} />
-                    {errors.message}
-                  </p>
-                )}
               </div>
 
               <button
                 type="submit"
                 disabled={formStatus === 'loading'}
-                className={`w-full px-8 py-3 bg-gold text-white font-semibold rounded-xl transition-all duration-300 shadow-lg hover:shadow-glow flex items-center justify-center gap-2 text-sm ${
-                  formStatus === 'loading' ? 'opacity-70 cursor-not-allowed' : 'hover:scale-105'
-                }`}
+                style={{
+                  width: '100%',
+                  padding: '0.75rem',
+                  backgroundColor: '#d4af37',
+                  color: 'white',
+                  fontWeight: '600',
+                  borderRadius: '0.75rem',
+                  border: 'none',
+                  cursor: 'pointer',
+                  transition: 'all 0.3s',
+                  opacity: formStatus === 'loading' ? 0.7 : 1,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '0.5rem',
+                  fontSize: '0.875rem'
+                }}
               >
                 {formStatus === 'loading' ? (
-                  <>
-                    <Loader2 size={20} className="animate-spin" />
-                    Sending...
-                  </>
+                  'Sending...'
                 ) : formStatus === 'success' ? (
-                  <>
-                    <CheckCircle size={20} />
-                    Message Sent!
-                  </>
-                ) : formStatus === 'error' ? (
-                  <>
-                    <AlertCircle size={20} />
-                    {errorMessage || 'Failed to send'}
-                  </>
+                  '✓ Message Sent!'
                 ) : (
                   <>
-                    <Send size={20} />
+                    <Send size={18} />
                     Send Message
                   </>
                 )}
               </button>
             </form>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

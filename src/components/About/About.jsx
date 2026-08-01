@@ -5,45 +5,38 @@ import { GraduationCap, Briefcase } from 'lucide-react';
 
 const About = () => {
   return (
-    <section id="about" className="py-16 md:py-24 px-4 md:px-6 bg-white dark:bg-navy/95">
-      <div className="max-w-6xl mx-auto">
-        {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-10 md:mb-16"
-        >
-          <h2 className="text-3xl md:text-5xl font-bold text-navy dark:text-white">
-            About <span className="text-gold">Achmed</span>
+    <section id="about" style={{ padding: '4rem 1.5rem', backgroundColor: '#ffffff' }}>
+      <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+        <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+          <h2 style={{ fontSize: '2.5rem', fontWeight: 'bold', color: '#0b1a33' }}>
+            About <span style={{ color: '#d4af37' }}>Achmed</span>
           </h2>
-          <p className="text-gray-600 dark:text-gray-300 mt-2 md:mt-3 max-w-2xl mx-auto text-sm md:text-base">
+          <p style={{ color: '#64748b', marginTop: '0.5rem' }}>
             Entrepreneur · Business Executive · Engineering Professional
           </p>
-        </motion.div>
+        </div>
 
-        {/* Biography Section - Text now visible on all backgrounds */}
-        <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-start mb-16 md:mb-20">
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', alignItems: 'start' }}>
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <div className="text-gray-800 dark:text-gray-200 leading-relaxed text-sm md:text-base space-y-4">
-              <p>
+            <div style={{ color: '#1e293b', fontSize: '0.95rem', lineHeight: '1.8' }}>
+              <p style={{ marginBottom: '1rem' }}>
                 Achmed Thronka is a Sierra Leonean entrepreneur, business executive and engineering professional with over twelve years of experience in business leadership, operations management, hospitality and engineering.
               </p>
-              <p>
-                He is the <strong className="text-gold">CEO and Founder</strong> of White Dove Electrical Engineering Company, a company committed to providing innovative electrical engineering solutions and supporting infrastructure development in Sierra Leone.
+              <p style={{ marginBottom: '1rem' }}>
+                He is the <strong style={{ color: '#d4af37' }}>CEO and Founder</strong> of White Dove Electrical Engineering Company, a company committed to providing innovative electrical engineering solutions and supporting infrastructure development in Sierra Leone.
               </p>
-              <p>
-                He currently serves as the <strong className="text-gold">General Manager</strong> of Grand Leone Group, where he oversees business operations, strategic planning, customer experience and organizational growth.
+              <p style={{ marginBottom: '1rem' }}>
+                He currently serves as the <strong style={{ color: '#d4af37' }}>General Manager</strong> of Grand Leone Group, where he oversees business operations, strategic planning, customer experience and organizational growth.
               </p>
-              <p>
+              <p style={{ marginBottom: '1rem' }}>
                 His passion for leadership, innovation and organizational management has enabled him to successfully manage businesses across multiple industries including hospitality, gaming, engineering and corporate administration.
               </p>
-              <p>
+              <p style={{ marginBottom: '1rem' }}>
                 Throughout his professional journey, he has consistently demonstrated integrity, discipline, professionalism and an unwavering commitment to excellence.
               </p>
               <p>
@@ -51,24 +44,22 @@ const About = () => {
               </p>
             </div>
 
-            {/* Key Stats */}
-            <div className="grid grid-cols-2 gap-3 md:gap-4 mt-6 md:mt-8">
-              <div className="bg-white/80 dark:bg-white/5 p-4 rounded-xl border border-gold/20">
-                <div className="text-2xl md:text-3xl font-bold text-gold">12+</div>
-                <div className="text-xs md:text-sm text-gray-700 dark:text-gray-300">Years of Leadership</div>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginTop: '2rem' }}>
+              <div style={{ backgroundColor: '#f8fafc', padding: '1rem', borderRadius: '0.75rem', border: '1px solid rgba(212,175,55,0.2)' }}>
+                <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#d4af37' }}>12+</div>
+                <div style={{ fontSize: '0.8rem', color: '#475569' }}>Years of Leadership</div>
               </div>
-              <div className="bg-white/80 dark:bg-white/5 p-4 rounded-xl border border-gold/20">
-                <div className="text-2xl md:text-3xl font-bold text-gold">3+</div>
-                <div className="text-xs md:text-sm text-gray-700 dark:text-gray-300">Companies Managed</div>
+              <div style={{ backgroundColor: '#f8fafc', padding: '1rem', borderRadius: '0.75rem', border: '1px solid rgba(212,175,55,0.2)' }}>
+                <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#d4af37' }}>3+</div>
+                <div style={{ fontSize: '0.8rem', color: '#475569' }}>Companies Managed</div>
               </div>
             </div>
 
-            {/* Core Values */}
-            <div className="mt-6 md:mt-8">
-              <h3 className="text-base md:text-lg font-semibold text-navy dark:text-white mb-3">Core Values</h3>
-              <div className="flex flex-wrap gap-2">
+            <div style={{ marginTop: '2rem' }}>
+              <h3 style={{ fontSize: '1rem', fontWeight: '600', color: '#0b1a33', marginBottom: '0.75rem' }}>Core Values</h3>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
                 {aboutData.values.map((value) => (
-                  <span key={value} className="px-3 py-1.5 md:px-4 md:py-2 bg-gold/10 text-gold rounded-full text-xs md:text-sm font-medium">
+                  <span key={value} style={{ padding: '0.4rem 1rem', backgroundColor: 'rgba(212,175,55,0.1)', color: '#d4af37', borderRadius: '9999px', fontSize: '0.8rem', fontWeight: '500' }}>
                     {value}
                   </span>
                 ))}
@@ -81,34 +72,35 @@ const About = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="flex justify-center mt-6 md:mt-0"
+            style={{ display: 'flex', justifyContent: 'center' }}
           >
-            <div className="relative w-full max-w-sm md:max-w-md">
-              <div className="absolute -inset-4 bg-gold/10 rounded-3xl blur-2xl" />
+            <div style={{ position: 'relative', width: '100%', maxWidth: '400px' }}>
+              <div style={{ position: 'absolute', inset: '-1rem', backgroundColor: 'rgba(212,175,55,0.05)', borderRadius: '1.5rem', filter: 'blur(20px)' }} />
               <img
                 src={aboutData.image}
                 alt="Achmed Thronka"
-                className="relative rounded-2xl shadow-premium w-full h-auto max-h-[400px] md:max-h-[500px] object-cover"
+                loading="lazy"
+                style={{ position: 'relative', borderRadius: '1rem', boxShadow: '0 20px 40px rgba(0,0,0,0.15)', width: '100%', height: 'auto', maxHeight: '500px', objectFit: 'cover' }}
               />
-              <div className="absolute -bottom-2 -right-2 md:-bottom-4 md:-right-4 bg-gold text-white px-4 py-2 md:px-6 md:py-3 rounded-xl shadow-lg">
-                <div className="text-xs md:text-sm font-bold">CEO & Founder</div>
+              <div style={{ position: 'absolute', bottom: '-0.5rem', right: '-0.5rem', backgroundColor: '#d4af37', color: 'white', padding: '0.5rem 1.5rem', borderRadius: '0.75rem', boxShadow: '0 10px 20px rgba(0,0,0,0.15)' }}>
+                <span style={{ fontSize: '0.8rem', fontWeight: 'bold' }}>CEO & Founder</span>
               </div>
             </div>
           </motion.div>
         </div>
 
-        {/* Education Timeline */}
+        {/* Education */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-16 md:mb-20"
+          style={{ marginTop: '3rem' }}
         >
-          <div className="flex items-center gap-3 mb-6 md:mb-8">
-            <GraduationCap className="text-gold" size={24} />
-            <h3 className="text-xl md:text-2xl font-bold text-navy dark:text-white">Education</h3>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.5rem' }}>
+            <GraduationCap style={{ color: '#d4af37' }} size={24} />
+            <h3 style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#0b1a33' }}>Education</h3>
           </div>
-          <div className="space-y-3 md:space-y-4">
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
             {educationData.map((edu, index) => (
               <motion.div
                 key={edu.id}
@@ -116,34 +108,35 @@ const About = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-white/80 dark:bg-navy/50 p-4 md:p-6 rounded-xl border border-gold/10 hover:border-gold/30 transition-all duration-300"
+                style={{ backgroundColor: '#f8fafc', padding: '1.5rem', borderRadius: '0.75rem', border: '1px solid rgba(212,175,55,0.1)' }}
               >
-                <div className="flex flex-wrap justify-between items-start gap-2 md:gap-4">
+                <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'flex-start' }}>
                   <div>
-                    <h4 className="text-sm md:text-lg font-semibold text-navy dark:text-white">{edu.institution}</h4>
-                    <p className="text-gold text-xs md:text-sm font-medium">{edu.period}</p>
+                    <h4 style={{ fontSize: '1rem', fontWeight: '600', color: '#0b1a33' }}>{edu.institution}</h4>
+                    <p style={{ color: '#d4af37', fontSize: '0.8rem', fontWeight: '500' }}>{edu.period}</p>
                   </div>
-                  <span className="text-xs text-gray-500 dark:text-gray-400">{edu.location}</span>
+                  <span style={{ fontSize: '0.75rem', color: '#94a3b8' }}>{edu.location}</span>
                 </div>
                 {edu.description && (
-                  <p className="text-gray-700 dark:text-gray-300 mt-1 md:mt-2 text-xs md:text-sm">{edu.description}</p>
+                  <p style={{ color: '#475569', marginTop: '0.5rem', fontSize: '0.85rem' }}>{edu.description}</p>
                 )}
               </motion.div>
             ))}
           </div>
         </motion.div>
 
-        {/* Career Timeline */}
+        {/* Career */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
+          style={{ marginTop: '3rem' }}
         >
-          <div className="flex items-center gap-3 mb-6 md:mb-8">
-            <Briefcase className="text-gold" size={24} />
-            <h3 className="text-xl md:text-2xl font-bold text-navy dark:text-white">Professional Experience</h3>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.5rem' }}>
+            <Briefcase style={{ color: '#d4af37' }} size={24} />
+            <h3 style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#0b1a33' }}>Professional Experience</h3>
           </div>
-          <div className="space-y-3 md:space-y-4">
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
             {careerData.map((job, index) => (
               <motion.div
                 key={job.id}
@@ -151,17 +144,17 @@ const About = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-white/80 dark:bg-navy/50 p-4 md:p-6 rounded-xl border border-gold/10 hover:border-gold/30 transition-all duration-300"
+                style={{ backgroundColor: '#f8fafc', padding: '1.5rem', borderRadius: '0.75rem', border: '1px solid rgba(212,175,55,0.1)' }}
               >
-                <div className="flex flex-wrap justify-between items-start gap-2 md:gap-4">
+                <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'flex-start' }}>
                   <div>
-                    <h4 className="text-sm md:text-lg font-semibold text-navy dark:text-white">{job.company}</h4>
-                    <p className="text-gold text-xs md:text-sm font-medium">{job.position}</p>
+                    <h4 style={{ fontSize: '1rem', fontWeight: '600', color: '#0b1a33' }}>{job.company}</h4>
+                    <p style={{ color: '#d4af37', fontSize: '0.8rem', fontWeight: '500' }}>{job.position}</p>
                   </div>
-                  <span className="text-xs text-gray-500 dark:text-gray-400">{job.period}</span>
+                  <span style={{ fontSize: '0.75rem', color: '#94a3b8' }}>{job.period}</span>
                 </div>
                 {job.description && (
-                  <p className="text-gray-700 dark:text-gray-300 mt-1 md:mt-2 text-xs md:text-sm">{job.description}</p>
+                  <p style={{ color: '#475569', marginTop: '0.5rem', fontSize: '0.85rem' }}>{job.description}</p>
                 )}
               </motion.div>
             ))}
