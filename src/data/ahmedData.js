@@ -2,7 +2,7 @@
 // Achmed Thronka - Data File
 // ============================================================
 
-// Profile Images - Using direct paths
+// Profile Images
 export const profileImage = '/images/achmed-profie.jpeg';
 export const aboutImage = '/images/achmed-about.jpeg';
 
@@ -30,13 +30,11 @@ export const aboutData = {
 
   His passion for leadership, innovation and organizational management has enabled him to successfully manage businesses across multiple industries including hospitality, gaming, engineering and corporate administration.
 
-  Throughout his professional journey, he has consistently demonstrated integrity, discipline, professionalism and an unwavering commitment to excellence.
-
-  He strongly believes in empowering young professionals, creating employment opportunities and contributing to Sierra Leone's economic development through entrepreneurship and responsible leadership.`,
+  Throughout his professional journey, he has consistently demonstrated integrity, discipline, professionalism and an unwavering commitment to excellence.`,
   mission: 'To empower communities through innovative engineering solutions and ethical business practices.',
   vision: 'To create sustainable businesses that drive economic growth and social development in Sierra Leone and beyond.',
   values: ['Leadership', 'Integrity', 'Innovation', 'Excellence', 'Discipline', 'Community Impact'],
-  image: aboutImage,
+  image: '/images/achmed-about.jpeg',
 };
 
 // Education Data
