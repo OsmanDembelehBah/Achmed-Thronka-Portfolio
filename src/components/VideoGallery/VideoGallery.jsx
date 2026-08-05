@@ -75,7 +75,7 @@ const VideoGallery = () => {
   };
 
   return (
-    <section id="videos" className="py-24 px-6 bg-gray-50 dark:bg-navy/70">
+    <section id="videos" className="py-24 px-4 sm:px-6 bg-gray-50 dark:bg-navy/70">
       <div className="max-w-4xl mx-auto">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold text-navy dark:text-white">
@@ -85,39 +85,68 @@ const VideoGallery = () => {
         </motion.div>
 
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="bg-white dark:bg-navy/80 rounded-3xl overflow-hidden shadow-xl">
-          <div className="relative bg-black aspect-video">
-            <video ref={videoRef} className="w-full h-full" onTimeUpdate={handleTimeUpdate} onLoadedMetadata={handleLoadedMetadata} poster={videoData.thumbnail} playsInline>
+          <div className="relative bg-black aspect-video group">
+            <video 
+              ref={videoRef} 
+              className="w-full h-full object-cover" 
+              onTimeUpdate={handleTimeUpdate} 
+              onLoadedMetadata={handleLoadedMetadata} 
+              poster={videoData.thumbnail} 
+              playsInline
+              onClick={togglePlay}
+            >
               <source src={videoData.videoUrl} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
 
-            <button onClick={togglePlay} className="absolute inset-0 flex items-center justify-center text-white/80 hover:text-white transition-colors duration-300 group">
-              <div className="w-20 h-20 rounded-full bg-gold/20 backdrop-blur-sm flex items-center justify-center group-hover:bg-gold/30 transition-all duration-300">
-                {isPlaying ? <Pause size={40} className="ml-0" /> : <Play size={40} className="ml-2" />}
+            {/* FIXED: Center Play Button hides when playing, appears on pause/hover */}
+            <button 
+              onClick={togglePlay} 
+              className={`absolute inset-0 flex items-center justify-center transition-all duration-300 z-0 pointer-events-none ${
+                isPlaying ? 'opacity-0 bg-transparent' : 'opacity-100 bg-black/30'
+              }`}
+            >
+              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gold/70 backdrop-blur-md flex items-center justify-center text-white pointer-events-auto hover:bg-gold transition-all duration-300 hover:scale-110 shadow-lg">
+                {isPlaying ? <Pause size={32} className="ml-0" /> : <Play size={32} className="ml-2" />}
               </div>
             </button>
 
-            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-              <div className="w-full h-1 bg-white/30 rounded-full cursor-pointer mb-3" onClick={handleProgressClick}>
-                <div className="h-full bg-gold rounded-full transition-all duration-300" style={{ width: `${progress}%` }} />
-              </div>
-              <div className="flex items-center justify-between text-white text-sm">
-                <div className="flex items-center gap-4">
-                  <button onClick={togglePlay} className="hover:text-gold transition">{isPlaying ? <Pause size={18} /> : <Play size={18} />}</button>
-                  <button onClick={toggleMute} className="hover:text-gold transition">{isMuted ? <VolumeX size={18} /> : <Volume2 size={18} />}</button>
-                  <span>{formatTime(videoRef.current?.currentTime || 0)} / {formatTime(duration)}</span>
+            {/* FIXED: Controls are wrapped in z-10 to stay clickable */}
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-3 sm:p-4 z-10 opacity-100 transition-opacity duration-300">
+              
+              {/* FIXED: py-3 wrapper creates a large, easy-to-tap hit area for mobile */}
+              <div className="w-full py-3 cursor-pointer mb-1 group-hover:opacity-100" onClick={handleProgressClick}>
+                <div className="w-full h-1.5 bg-white/30 rounded-full overflow-hidden">
+                  <div className="h-full bg-gold rounded-full transition-all duration-100" style={{ width: `${progress}%` }} />
                 </div>
-                <button onClick={toggleFullscreen} className="hover:text-gold transition"><Maximize size={18} /></button>
+              </div>
+              
+              <div className="flex items-center justify-between text-white text-xs sm:text-sm">
+                <div className="flex items-center gap-3 sm:gap-4">
+                  <button onClick={togglePlay} className="hover:text-gold transition p-1">
+                    {isPlaying ? <Pause size={18} /> : <Play size={18} />}
+                  </button>
+                  <button onClick={toggleMute} className="hover:text-gold transition p-1">
+                    {isMuted ? <VolumeX size={18} /> : <Volume2 size={18} />}
+                  </button>
+                  <span className="font-mono tracking-wider text-white/90">
+                    {formatTime(videoRef.current?.currentTime || 0)} / {formatTime(duration)}
+                  </span>
+                </div>
+                <button onClick={toggleFullscreen} className="hover:text-gold transition p-1">
+                  <Maximize size={18} />
+                </button>
               </div>
             </div>
           </div>
-          <div className="p-6">
-            <div className="flex items-center gap-3 mb-2">
-              <span className="text-xs font-medium text-gold bg-gold/10 px-3 py-1 rounded-full">{videoData.category}</span>
-              <span className="text-xs text-gray-500 dark:text-gray-400">{videoData.date}</span>
+          
+          <div className="p-5 sm:p-6">
+            <div className="flex items-center gap-3 mb-3">
+              <span className="text-xs font-semibold text-gold bg-gold/10 px-3 py-1 rounded-full border border-gold/20">{videoData.category}</span>
+              <span className="text-xs font-medium text-gray-500 dark:text-gray-400">{videoData.date}</span>
             </div>
-            <h3 className="text-xl font-bold text-navy dark:text-white mb-2">{videoData.title}</h3>
-            <p className="text-gray-600 dark:text-gray-300 leading-relaxed">{videoData.description}</p>
+            <h3 className="text-xl sm:text-2xl font-bold text-navy dark:text-white mb-2">{videoData.title}</h3>
+            <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base leading-relaxed">{videoData.description}</p>
           </div>
         </motion.div>
       </div>
