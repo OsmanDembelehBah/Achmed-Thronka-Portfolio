@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { slideshowImages } from '../data/ahmedData';
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { slideshowImages } from "../data/ahmedData";
 
 const BackgroundSlideshow = () => {
   const [index, setIndex] = useState(0);
@@ -12,7 +12,9 @@ const BackgroundSlideshow = () => {
   };
 
   const prevSlide = () => {
-    setIndex((prev) => (prev - 1 + slideshowImages.length) % slideshowImages.length);
+    setIndex(
+      (prev) => (prev - 1 + slideshowImages.length) % slideshowImages.length,
+    );
   };
 
   useEffect(() => {
@@ -22,7 +24,7 @@ const BackgroundSlideshow = () => {
   }, [isPaused, index]);
 
   return (
-    <div 
+    <div
       className="fixed inset-0 -z-20 overflow-hidden"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
@@ -33,17 +35,17 @@ const BackgroundSlideshow = () => {
           initial={{ opacity: 0, scale: 1.1 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 1.1 }}
-          transition={{ duration: 1.5, ease: 'easeInOut' }}
+          transition={{ duration: 1.5, ease: "easeInOut" }}
           className="absolute inset-0"
         >
-          <div 
+          <div
             className="absolute inset-0"
-            style={{ 
+            style={{
               backgroundImage: `url(${slideshowImages[index]})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              filter: 'blur(8px) scale(1.1)',
-              transform: 'scale(1.1)'
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              filter: "blur(8px) scale(1.1)",
+              transform: "scale(1.1)",
             }}
           />
           <div className="absolute inset-0 flex items-center justify-center">
@@ -82,7 +84,7 @@ const BackgroundSlideshow = () => {
             key={i}
             onClick={() => setIndex(i)}
             className={`w-2 h-2 rounded-full transition-all duration-300 ${
-              i === index ? 'bg-gold w-6' : 'bg-white/50 hover:bg-white/80'
+              i === index ? "bg-gold w-6" : "bg-white/50 hover:bg-white/80"
             }`}
             aria-label={`Go to slide ${i + 1}`}
           />

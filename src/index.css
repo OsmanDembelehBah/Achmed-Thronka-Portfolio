@@ -14,14 +14,17 @@ html {
 
 /* Default dark background and base contrast settings */
 body {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif;
   background-color: #0b1a33;
   color: #1e293b;
 }
 
 .dark body {
   background-color: #0b1a33;
-  color: #f8fafc;
 }
 
 /* Glassmorphism */
@@ -91,9 +94,9 @@ body {
   color: #64748b;
 }
 
-.dark .text-gray-500 {
+/* .dark .text-gray-500 {
   color: #94a3b8;
-}
+} */
 
 /* Masonry Gallery */
 .masonry-grid {

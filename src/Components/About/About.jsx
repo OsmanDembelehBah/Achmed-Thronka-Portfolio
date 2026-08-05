@@ -19,14 +19,14 @@ const About = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+            <p className="text-gray-700 dark:text-gray-400 leading-relaxed mb-4">
               <strong className="text-gold">CEO & Founder</strong> of White Dove
               Electrical and Engineering Company, Sierra Leone. A serial
               entrepreneur with over 12 years of leadership experience,{" "}
               <strong className="text-gold">General Manager</strong> of Grand
               Leone Casino.
             </p>
-            <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+            <p className="text-gray-700 dark:text-gray-400 leading-relaxed mb-4">
               Graduate of <strong className="text-gold">IPAM</strong> (BSc
               Applied Accounting) and{" "}
               <strong className="text-gold">
