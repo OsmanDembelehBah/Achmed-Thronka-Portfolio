@@ -12,11 +12,16 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Default dark background and high-contrast text color */
+/* Default dark background and base contrast settings */
 body {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   background-color: #0b1a33;
-  color: #f8fafc; /* Ensures text is visible by default everywhere */
+  color: #1e293b;
+}
+
+.dark body {
+  background-color: #0b1a33;
+  color: #f8fafc;
 }
 
 /* Glassmorphism */
@@ -32,7 +37,7 @@ body {
   backdrop-filter: blur(14px);
 }
 
-/* Gold Theme Utilities */
+/* Gold Theme */
 .text-gold {
   color: #d4af37 !important;
 }
@@ -57,7 +62,7 @@ body {
   background-color: #0b1a33 !important;
 }
 
-/* Text Visibility Utilities */
+/* Text Visibility Utilities (High Contrast) */
 .text-navy {
   color: #0b1a33;
 }
@@ -66,32 +71,31 @@ body {
   color: #ffffff;
 }
 
-/* Fallback Color Adjustments */
 .text-gray-700 {
-  color: #374151;
+  color: #334155;
 }
 
 .dark .text-gray-700 {
-  color: #d1d5db;
+  color: #cbd5e1;
 }
 
 .text-gray-600 {
-  color: #4b5563;
+  color: #475569;
 }
 
 .dark .text-gray-600 {
-  color: #9ca3af;
+  color: #94a3b8;
 }
 
 .text-gray-500 {
-  color: #6b7280;
+  color: #64748b;
 }
 
 .dark .text-gray-500 {
-  color: #9ca3af;
+  color: #94a3b8;
 }
 
-/* Masonry Gallery Fallback Grid */
+/* Masonry Gallery */
 .masonry-grid {
   column-count: 3;
   column-gap: 1.2rem;
@@ -109,7 +113,7 @@ body {
   }
 }
 
-/* Shadows & Animations */
+/* Shadows */
 .shadow-premium {
   box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.4);
 }

@@ -2,16 +2,19 @@
 
 echo "🖼️ Optimizing images for faster loading..."
 
-# Install imagemin if needed
-# npm install -g imagemin-cli
+# Install jpegoptim if not installed
+if ! command -v jpegoptim &> /dev/null; then
+  echo "Installing jpegoptim..."
+  sudo apt-get install -y jpegoptim 2>/dev/null || brew install jpegoptim 2>/dev/null
+fi
 
-# Optimize all images in public folder
-if command -v imagemin &> /dev/null; then
-  imagemin public/images/**/*.{jpg,jpeg,png} --out-dir=public/images --plugin=jpegoptim --plugin=pngquant
+# Optimize images in public folder
+if [ -d "public/images" ]; then
+  echo "Optimizing images in public/images..."
+  find public/images -name "*.jpg" -o -name "*.jpeg" | xargs jpegoptim --max=75 --strip-all 2>/dev/null
   echo "✅ Images optimized!"
 else
-  echo "⚠️  imagemin not installed. Run: npm install -g imagemin-cli"
-  echo "📝 For now, images will load as-is."
+  echo "📁 public/images folder not found. Run: cp -r src/assets/images/* public/images/"
 fi
 
 echo "✅ Done!"

@@ -1,5 +1,5 @@
 // ============================================================
-// Achmed Thronka - Data File (Production Ready)
+// Achmed Thronka - Data File
 // ============================================================
 
 // Profile Images
@@ -24,15 +24,11 @@ export const aboutData = {
   location: 'Sierra Leone',
   biography: `Achmed Thronka is a Sierra Leonean entrepreneur, business executive and engineering professional with over twelve years of experience in business leadership, operations management, hospitality and engineering.
 
-He is the CEO and Founder of White Dove Electrical Engineering Company, a company committed to providing innovative electrical engineering solutions and supporting infrastructure development in Sierra Leone.
+  He is the CEO and Founder of White Dove Electrical Engineering Company, a company committed to providing innovative electrical engineering solutions and supporting infrastructure development in Sierra Leone.
 
-He currently serves as the General Manager of Grand Leone Group, where he oversees business operations, strategic planning, customer experience and organizational growth.
+  He currently serves as the General Manager of Grand Leone Group, where he oversees business operations, strategic planning, customer experience and organizational growth.
 
-His passion for leadership, innovation and organizational management has enabled him to successfully manage businesses across multiple industries including hospitality, gaming, engineering and corporate administration.
-
-Throughout his professional journey, he has consistently demonstrated integrity, discipline, professionalism and an unwavering commitment to excellence.
-
-He strongly believes in empowering young professionals, creating employment opportunities and contributing to Sierra Leone's economic development through entrepreneurship and responsible leadership.`,
+  His passion for leadership, innovation and organizational management has enabled him to successfully manage businesses across multiple industries including hospitality, gaming, engineering and corporate administration.`,
   mission: 'To empower communities through innovative engineering solutions and ethical business practices.',
   vision: 'To create sustainable businesses that drive economic growth and social development in Sierra Leone and beyond.',
   values: ['Leadership', 'Integrity', 'Innovation', 'Excellence', 'Discipline', 'Community Impact'],
@@ -80,7 +76,7 @@ export const venturesData = [
   {
     id: 3,
     title: 'Times Mansion',
-    description: `A leading five-star hospitality establishment in Sierra Leone known for delivering premium accommodation, exceptional customer service and luxury experiences. Under Achmed's leadership as General Manager, Times Mansion continues to set the standard for luxury hospitality in the region.`,
+    description: `A leading five-star hospitality establishment in Sierra Leone known for delivering premium accommodation, exceptional customer service and luxury experiences.`,
     image: '/logos/Times Mansion.jpeg',
     logo: '/logos/Times Mansion.jpeg',
     website: 'https://www.booking.com/hotel/sl/times-mansion-freetown.html',
